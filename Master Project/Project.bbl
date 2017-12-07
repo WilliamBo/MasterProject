@@ -1,0 +1,19 @@
+\begin{thebibliography}{}
+
+\bibitem[Delaigle and Hall, 2013]{DH1}
+Delaigle, A. and Hall, P. (2013).
+\newblock Classification using censored functional data.
+\newblock {\em Journal of the American Statistical Association},
+  108(504):1269--1283.
+
+\bibitem[Descary and Panaretos, 2017]{DP2}
+Descary, M.-H. and Panaretos, V.~M. (2017).
+\newblock Recovering covariance from functional fragments.
+
+\bibitem[Kraus, 2015]{Kraus1}
+Kraus, D. (2015).
+\newblock Components and completion of partially observed functional data.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 77(4):777--801.
+
+\end{thebibliography}

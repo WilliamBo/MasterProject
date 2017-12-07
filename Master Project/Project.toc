@@ -1,0 +1,27 @@
+\contentsline {chapter}{\numberline {1}Introduction to Functional Data Analysis}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}What are functional data?}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Explain the structure of functional data, the spaces they live in, expectation, covariance, observable discretized versions. }{2}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}Statistical analysis of functional data}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Explain the basic principles of estimation of mean and covariance with convergence rates, etc.. Also mention smoothing methods. }{2}{subsection.1.2.1}
+\contentsline {chapter}{\numberline {2}Censored functional data}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Functional fragments framework}{3}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Explain the functional fragments framework and and the methods used by Kraus and Delaigle and Hall}{3}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Naive estimations}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Curve extension}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Covariance recovery}{6}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Explain the method by Descary and Panaretos to recover the covariance from functional fragments}{6}{subsection.2.4.1}
+\contentsline {chapter}{\numberline {3}Gaussian measures in Hilbert space}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Gaussian measures in finite dimensions}{7}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Basic definitions}{7}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Gaussian measures in infinite dimensions}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Definition and construction of gaussian measures in infinite dimensions. Basic properties.}{7}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}The Feldman-Hajek theorem}{7}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Stating the F-H theorem with some intuition}{7}{subsection.3.3.1}
+\contentsline {chapter}{\numberline {4}Classification of functional data}{8}{chapter.4}
+\contentsline {section}{\numberline {4.1}Linear and quadratic discriminant analysis for functional data}{8}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Explain LDA and QDA}{8}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Classification of functional fragments}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{8}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}A probabilistic approach to classification}{8}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{8}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {5}Numerical experiments}{9}{chapter.5}
