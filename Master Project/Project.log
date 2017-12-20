@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.29)  7 DEC 2017 20:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.29)  19 DEC 2017 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,32 +1128,32 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
  (./Project.aux)
 \openout1 = `Project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 44.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 44.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.39998pt on input line 43.
+Package xypdf Info: Line width: 0.39998pt on input line 44.
 \AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring OFF on input line 43.
+Package hyperref Info: Link coloring OFF on input line 44.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1163,9 +1163,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count169
 )
-LaTeX Info: Redefining \ref on input line 43.
-LaTeX Info: Redefining \pageref on input line 43.
-LaTeX Info: Redefining \nameref on input line 43.
+LaTeX Info: Redefining \ref on input line 44.
+LaTeX Info: Redefining \pageref on input line 44.
+LaTeX Info: Redefining \nameref on input line 44.
 
 (./Project.out) (./Project.out)
 \@outlinefile=\write5
@@ -1239,10 +1239,10 @@ Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 ABD: EveryShipout initializing macros
-<EPFL-Logo.jpg, id=115, 273.1806pt x 131.17004pt>
+<EPFL-Logo.jpg, id=111, 273.1806pt x 131.17004pt>
 File: EPFL-Logo.jpg Graphic file (type jpg)
  <use EPFL-Logo.jpg>
-Package pdftex.def Info: EPFL-Logo.jpg used on input line 46.
+Package pdftex.def Info: EPFL-Logo.jpg used on input line 47.
 (pdftex.def)             Requested size: 256.07741pt x 122.96759pt.
  [1
 
@@ -1255,7 +1255,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.69 \chapter
+l.70 \chapter
              {Introduction to Functional Data Analysis} [1
 
 ]
@@ -1269,21 +1269,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--83
 
  []
 
-<Code/images/21/full.png, id=171, 360.34625pt x 232.87pt>
+<Code/images/21/full.png, id=162, 360.34625pt x 232.87pt>
 File: Code/images/21/full.png Graphic file (type png)
 
 <use Code/images/21/full.png>
 Package pdftex.def Info: Code/images/21/full.png used on input line 91.
 (pdftex.def)             Requested size: 102.43134pt x 66.19452pt.
 
-<Code/images/21/blanket.png, id=173, 360.34625pt x 232.87pt>
+<Code/images/21/blanket.png, id=164, 360.34625pt x 232.87pt>
 File: Code/images/21/blanket.png Graphic file (type png)
 
 <use Code/images/21/blanket.png>
 Package pdftex.def Info: Code/images/21/blanket.png used on input line 96.
 (pdftex.def)             Requested size: 102.43134pt x 66.19452pt.
 
-<Code/images/21/frags.png, id=174, 360.34625pt x 232.87pt>
+<Code/images/21/frags.png, id=165, 360.34625pt x 232.87pt>
 File: Code/images/21/frags.png Graphic file (type png)
 
 <use Code/images/21/frags.png>
@@ -1293,142 +1293,202 @@ Package pdftex.def Info: Code/images/21/frags.png used on input line 101.
 
  <./Code/images/21/full.png> <./Code/images/21/blanket.png> <./Code/images/21/f
 rags.png>]
-<Code/images/22/truecov.png, id=194, 329.23pt x 235.88126pt>
+<Code/images/22/truecov.png, id=187, 329.23pt x 235.88126pt>
 File: Code/images/22/truecov.png Graphic file (type png)
 
 <use Code/images/22/truecov.png>
-Package pdftex.def Info: Code/images/22/truecov.png used on input line 136.
+Package pdftex.def Info: Code/images/22/truecov.png used on input line 141.
 (pdftex.def)             Requested size: 102.43134pt x 73.38876pt.
 
-<Code/images/22/blanketheat.png, id=195, 336.25626pt x 235.88126pt>
+<Code/images/22/blanketheat.png, id=188, 336.25626pt x 235.88126pt>
 File: Code/images/22/blanketheat.png Graphic file (type png)
 
 <use Code/images/22/blanketheat.png>
-Package pdftex.def Info: Code/images/22/blanketheat.png used on input line 141.
+Package pdftex.def Info: Code/images/22/blanketheat.png used on input line 146.
 
 (pdftex.def)             Requested size: 102.43134pt x 71.85548pt.
 
-<Code/images/22/fragsheat.png, id=196, 336.25626pt x 235.88126pt>
+<Code/images/22/fragsheat.png, id=189, 336.25626pt x 235.88126pt>
 File: Code/images/22/fragsheat.png Graphic file (type png)
 
 <use Code/images/22/fragsheat.png>
-Package pdftex.def Info: Code/images/22/fragsheat.png used on input line 146.
+Package pdftex.def Info: Code/images/22/fragsheat.png used on input line 151.
 (pdftex.def)             Requested size: 102.43134pt x 71.85548pt.
 
-<Code/images/23/step1.png, id=199, 353.32pt x 232.87pt>
+<Code/images/23/step1.png, id=192, 353.32pt x 232.87pt>
 File: Code/images/23/step1.png Graphic file (type png)
 
 <use Code/images/23/step1.png>
-Package pdftex.def Info: Code/images/23/step1.png used on input line 158.
+Package pdftex.def Info: Code/images/23/step1.png used on input line 163.
 (pdftex.def)             Requested size: 170.71393pt x 112.51541pt.
 
-<Code/images/23/step2.png, id=200, 353.32pt x 232.87pt>
+<Code/images/23/step2.png, id=193, 353.32pt x 232.87pt>
 File: Code/images/23/step2.png Graphic file (type png)
 
 <use Code/images/23/step2.png>
-Package pdftex.def Info: Code/images/23/step2.png used on input line 159.
+Package pdftex.def Info: Code/images/23/step2.png used on input line 164.
 (pdftex.def)             Requested size: 170.71393pt x 112.51541pt.
 
-<Code/images/23/step3.png, id=201, 353.32pt x 232.87pt>
+<Code/images/23/step3.png, id=194, 353.32pt x 232.87pt>
 File: Code/images/23/step3.png Graphic file (type png)
 
 <use Code/images/23/step3.png>
-Package pdftex.def Info: Code/images/23/step3.png used on input line 160.
+Package pdftex.def Info: Code/images/23/step3.png used on input line 165.
 (pdftex.def)             Requested size: 170.71393pt x 112.51541pt.
 
-<Code/images/23/step4.png, id=202, 353.32pt x 232.87pt>
+<Code/images/23/step4.png, id=195, 353.32pt x 232.87pt>
 File: Code/images/23/step4.png Graphic file (type png)
 
 <use Code/images/23/step4.png>
-Package pdftex.def Info: Code/images/23/step4.png used on input line 164.
+Package pdftex.def Info: Code/images/23/step4.png used on input line 169.
 (pdftex.def)             Requested size: 170.71393pt x 112.51541pt.
 
-<Code/images/23/step5.png, id=203, 353.32pt x 232.87pt>
+<Code/images/23/step5.png, id=196, 353.32pt x 232.87pt>
 File: Code/images/23/step5.png Graphic file (type png)
 
 <use Code/images/23/step5.png>
-Package pdftex.def Info: Code/images/23/step5.png used on input line 165.
+Package pdftex.def Info: Code/images/23/step5.png used on input line 170.
 (pdftex.def)             Requested size: 170.71393pt x 112.51541pt.
  [4 <./Code/images/22/truecov.png> <./Code/images/22/blanketheat.png> <./Code/i
 mages/22/fragsheat.png>]
-<Code/images/23/frags.png, id=216, 353.32pt x 232.87pt>
+<Code/images/23/frags.png, id=210, 353.32pt x 232.87pt>
 File: Code/images/23/frags.png Graphic file (type png)
 
 <use Code/images/23/frags.png>
-Package pdftex.def Info: Code/images/23/frags.png used on input line 176.
+Package pdftex.def Info: Code/images/23/frags.png used on input line 181.
 (pdftex.def)             Requested size: 136.57166pt x 90.01233pt.
 
-<Code/images/23/extended.png, id=217, 353.32pt x 232.87pt>
+<Code/images/23/extended.png, id=211, 353.32pt x 232.87pt>
 File: Code/images/23/extended.png Graphic file (type png)
 
 <use Code/images/23/extended.png>
-Package pdftex.def Info: Code/images/23/extended.png used on input line 181.
+Package pdftex.def Info: Code/images/23/extended.png used on input line 186.
 (pdftex.def)             Requested size: 136.57166pt x 90.01233pt.
 
-<Code/images/23/cov.png, id=218, 329.23pt x 235.88126pt>
+<Code/images/23/cov.png, id=212, 329.23pt x 235.88126pt>
 File: Code/images/23/cov.png Graphic file (type png)
 
 <use Code/images/23/cov.png>
-Package pdftex.def Info: Code/images/23/cov.png used on input line 191.
+Package pdftex.def Info: Code/images/23/cov.png used on input line 196.
 (pdftex.def)             Requested size: 136.57166pt x 97.8493pt.
  [5 <./Code/images/23/step1.png> <./Code/images/23/step2.png> <./Code/images/23
 /step3.png> <./Code/images/23/step4.png> <./Code/images/23/step5.png>] [6 <./Co
 de/images/23/frags.png> <./Code/images/23/extended.png> <./Code/images/23/cov.p
 ng>]
-Chapter 3.
-[7
+<Code/images/24/matcomp.png, id=245, 232.87pt x 232.87pt>
+File: Code/images/24/matcomp.png Graphic file (type png)
 
-]
+<use Code/images/24/matcomp.png>
+Package pdftex.def Info: Code/images/24/matcomp.png used on input line 251.
+(pdftex.def)             Requested size: 213.39568pt x 213.4044pt.
+ [7] [8 <./Code/images/24/matcomp.png>]
+<Code/images/24/fragex.png, id=276, 360.34625pt x 232.87pt>
+File: Code/images/24/fragex.png Graphic file (type png)
+
+<use Code/images/24/fragex.png>
+Package pdftex.def Info: Code/images/24/fragex.png used on input line 294.
+(pdftex.def)             Requested size: 298.75264pt x 193.06528pt.
+
+<Code/images/24/truecov.png, id=278, 278.03876pt x 233.87375pt>
+File: Code/images/24/truecov.png Graphic file (type png)
+
+<use Code/images/24/truecov.png>
+Package pdftex.def Info: Code/images/24/truecov.png used on input line 303.
+(pdftex.def)             Requested size: 170.71718pt x 143.6013pt.
+
+<Code/images/24/trunccov.png, id=279, 278.03876pt x 233.87375pt>
+File: Code/images/24/trunccov.png Graphic file (type png)
+
+<use Code/images/24/trunccov.png>
+Package pdftex.def Info: Code/images/24/trunccov.png used on input line 308.
+(pdftex.def)             Requested size: 170.71718pt x 143.6013pt.
+
+<Code/images/24/obvals.png, id=281, 351.3125pt x 232.87pt>
+File: Code/images/24/obvals.png Graphic file (type png)
+
+<use Code/images/24/obvals.png>
+Package pdftex.def Info: Code/images/24/obvals.png used on input line 317.
+(pdftex.def)             Requested size: 298.75264pt x 198.04701pt.
+
+<Code/images/24/estcov.png, id=283, 284.06125pt x 233.87375pt>
+File: Code/images/24/estcov.png Graphic file (type png)
+
+<use Code/images/24/estcov.png>
+Package pdftex.def Info: Code/images/24/estcov.png used on input line 324.
+(pdftex.def)             Requested size: 298.75264pt x 245.99219pt.
+ [9 <./Code/images/24/fragex.png> <./Code/images/24/truecov.png> <./Code/images
+/24/trunccov.png>] [10 <./Code/images/24/obvals.png> <./Code/images/24/estcov.p
+ng>]
+Chapter 3.
+[11
+
+] [12] [13] [14] [15] [16]
+Overfull \hbox (6.24957pt too wide) detected at line 564
+\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[] \OMS/cmsy/m/n/10 ^^B 
+\OML/cmm/m/it/10 ^^V[]; ^^W[] \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 ^^W[]\OT1/c
+mr/m/n/10 ) = [][] []\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U[] 
+\OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 ) = [][] []\OML/cmm/
+m/it/10 d^^U[] [][] []d^^U[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 H\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 ^^V[]; ^^W[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 H\OT1/cmr/m/n
+/10 (\OML/cmm/m/it/10 ^^V[]; ^^W[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
+ []
+
+[17] [18] [19] [20] [21]
 Chapter 4.
 
-Overfull \hbox (2.71977pt too wide) in paragraph at lines 212--212
+Overfull \hbox (2.71977pt too wide) in paragraph at lines 678--678
 []\OT1/cmr/bx/n/14.4 Linear and quadratic dis-crim-i-nant anal-y-sis for func-t
 ional
  []
 
-[8
+[22
 
 ]
 Chapter 5.
-(./Project.bbl [9
+(./Project.bbl [23
 
-]) [10
+]) [24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 700.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 700.
  (./Project.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 240.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 240.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 700.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 700.
 Package rerunfilecheck Info: File `Project.out' has not changed.
-(rerunfilecheck)             Checksum: C8F3B9D9202463304048586BE0D4DD82;2681.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 240.
+(rerunfilecheck)             Checksum: 2C8F1C0DDC324671472F95D3B36F7A55;2350.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 700.
  ) 
 Here is how much of TeX's memory you used:
- 23320 strings out of 494953
- 418736 string characters out of 6180977
- 563424 words of memory out of 5000000
- 26109 multiletter control sequences out of 15000+600000
- 11384 words of font info for 46 fonts, out of 8000000 for 9000
+ 23479 strings out of 494953
+ 420953 string characters out of 6180977
+ 566630 words of memory out of 5000000
+ 26193 multiletter control sequences out of 15000+600000
+ 20699 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 62i,9n,77p,3239b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,77p,3239b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Project.pdf (11 pages, 719694 bytes).
+exmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on Project.pdf (25 pages, 801687 bytes).
 PDF statistics:
- 315 PDF objects out of 1000 (max. 8388607)
- 256 compressed objects within 3 object streams
- 47 named destinations out of 1000 (max. 500000)
- 304 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 489 PDF objects out of 1000 (max. 8388607)
+ 398 compressed objects within 4 object streams
+ 106 named destinations out of 1000 (max. 500000)
+ 326 words of extra memory for PDF output out of 10000 (max. 10000000)
 

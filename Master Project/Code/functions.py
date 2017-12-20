@@ -135,7 +135,7 @@ def dog(i, P, trunc_cov):
     ssvd = svd(trunc_cov)
     x0 = (ssvd[0][:,:i] @ np.diag(ssvd[1][:i])).reshape((-1,))
     #res = minimize(obj, x0, method='nelder-mead', options={'xtol': 1e-8, 'disp': True})
-    res = minimize(obj, x0, method='BFGS',jac = grad, options={'gtol': 1e-6, 'disp': False})
+    res = minimize(obj, x0, method='BFGS',jac = grad, options={'gtol': 1e-7, 'disp': False})
     return res.fun, res.x 
 
 def smooth_matrix(M, t):

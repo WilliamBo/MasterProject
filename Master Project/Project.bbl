@@ -1,14 +1,45 @@
 \begin{thebibliography}{}
 
+\bibitem[Da~Prato, 2006]{prato1}
+Da~Prato, G. (2006).
+\newblock {\em An Introduction to Infinite-Dimensional Analysis}.
+\newblock Universitext. Springer Berlin Heidelberg.
+
+\bibitem[Da~Prato and Zabczyk, 2008]{prato2}
+Da~Prato, G. and Zabczyk, J. (2008).
+\newblock {\em Stochastic Equations in Infinite Dimensions}.
+\newblock Encyclopedia of Mathematics and its Applications. Cambridge
+  University Press.
+
+\bibitem[Debnath and Mikusinski, 2005]{hilb}
+Debnath, L. and Mikusinski, P. (2005).
+\newblock {\em Introduction to Hilbert Spaces with Applications}.
+\newblock Elsevier Science.
+
 \bibitem[Delaigle and Hall, 2013]{DH1}
 Delaigle, A. and Hall, P. (2013).
 \newblock Classification using censored functional data.
 \newblock {\em Journal of the American Statistical Association},
   108(504):1269--1283.
 
+\bibitem[Delaigle and Hall, 2016]{DH2}
+Delaigle, A. and Hall, P. (2016).
+\newblock Approximating fragmented functional data by segments of markov
+  chains.
+\newblock {\em Biometrika}, 103(4):779--799.
+
+\bibitem[Descary and Panaretos, 2016]{DP1}
+Descary, M.-H. and Panaretos, V.~M. (2016).
+\newblock Functional data analysis by matrix completion.
+
 \bibitem[Descary and Panaretos, 2017]{DP2}
 Descary, M.-H. and Panaretos, V.~M. (2017).
 \newblock Recovering covariance from functional fragments.
+
+\bibitem[Krantz and Parks, 2002]{analprimer}
+Krantz, S. and Parks, H. (2002).
+\newblock {\em A Primer of Real Analytic Functions}.
+\newblock A Primer of Real Analytic Functions. Birkh{\"a}user Boston.
 
 \bibitem[Kraus, 2015]{Kraus1}
 Kraus, D. (2015).

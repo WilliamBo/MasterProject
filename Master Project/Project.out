@@ -5,23 +5,22 @@
 \BOOKMARK [2][-]{subsection.1.2.1}{Explain the basic principles of estimation of mean and covariance with convergence rates, etc.. Also mention smoothing methods. }{section.1.2}% 5
 \BOOKMARK [0][-]{chapter.2}{Censored functional data}{}% 6
 \BOOKMARK [1][-]{section.2.1}{Functional fragments framework}{chapter.2}% 7
-\BOOKMARK [2][-]{subsection.2.1.1}{Explain the functional fragments framework and and the methods used by Kraus and Delaigle and Hall}{section.2.1}% 8
-\BOOKMARK [1][-]{section.2.2}{Naive estimations}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.3}{Curve extension}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.4}{Covariance recovery}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.4.1}{Explain the method by Descary and Panaretos to recover the covariance from functional fragments}{section.2.4}% 12
-\BOOKMARK [0][-]{chapter.3}{Gaussian measures in Hilbert space}{}% 13
-\BOOKMARK [1][-]{section.3.1}{Gaussian measures in finite dimensions}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.1.1}{Basic definitions}{section.3.1}% 15
-\BOOKMARK [1][-]{section.3.2}{Gaussian measures in infinite dimensions}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.2.1}{Definition and construction of gaussian measures in infinite dimensions. Basic properties.}{section.3.2}% 17
+\BOOKMARK [1][-]{section.2.2}{Naive estimations}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{Curve extension}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Covariance recovery}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.4.1}{Setup}{section.2.4}% 11
+\BOOKMARK [2][-]{subsection.2.4.2}{Identifiability and estimation}{section.2.4}% 12
+\BOOKMARK [2][-]{subsection.2.4.3}{Numerical implementation}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.4}{Example}{section.2.4}% 14
+\BOOKMARK [0][-]{chapter.3}{Gaussian measures in Hilbert space}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Gaussian measures in finite dimensions}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Gaussian measures in infinite dimensions}{chapter.3}% 17
 \BOOKMARK [1][-]{section.3.3}{The Feldman-Hajek theorem}{chapter.3}% 18
-\BOOKMARK [2][-]{subsection.3.3.1}{Stating the F-H theorem with some intuition}{section.3.3}% 19
-\BOOKMARK [0][-]{chapter.4}{Classification of functional data}{}% 20
-\BOOKMARK [1][-]{section.4.1}{Linear and quadratic discriminant analysis for functional data}{chapter.4}% 21
-\BOOKMARK [2][-]{subsection.4.1.1}{Explain LDA and QDA}{section.4.1}% 22
-\BOOKMARK [1][-]{section.4.2}{Classification of functional fragments}{chapter.4}% 23
-\BOOKMARK [2][-]{subsection.4.2.1}{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{section.4.2}% 24
-\BOOKMARK [1][-]{section.4.3}{A probabilistic approach to classification}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.3.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.3}% 26
-\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 27
+\BOOKMARK [0][-]{chapter.4}{Classification of functional data}{}% 19
+\BOOKMARK [1][-]{section.4.1}{Linear and quadratic discriminant analysis for functional data}{chapter.4}% 20
+\BOOKMARK [2][-]{subsection.4.1.1}{Explain LDA and QDA}{section.4.1}% 21
+\BOOKMARK [1][-]{section.4.2}{Classification of functional fragments}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.2.1}{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{section.4.2}% 23
+\BOOKMARK [1][-]{section.4.3}{A probabilistic approach to classification}{chapter.4}% 24
+\BOOKMARK [2][-]{subsection.4.3.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.3}% 25
+\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 26
