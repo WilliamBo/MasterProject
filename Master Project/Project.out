@@ -17,10 +17,11 @@
 \BOOKMARK [1][-]{section.3.2}{Gaussian measures in infinite dimensions}{chapter.3}% 17
 \BOOKMARK [1][-]{section.3.3}{The Feldman-Hajek theorem}{chapter.3}% 18
 \BOOKMARK [0][-]{chapter.4}{Classification of functional data}{}% 19
-\BOOKMARK [1][-]{section.4.1}{Linear and quadratic discriminant analysis for functional data}{chapter.4}% 20
-\BOOKMARK [2][-]{subsection.4.1.1}{Explain LDA and QDA}{section.4.1}% 21
-\BOOKMARK [1][-]{section.4.2}{Classification of functional fragments}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.2.1}{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{section.4.2}% 23
-\BOOKMARK [1][-]{section.4.3}{A probabilistic approach to classification}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.3.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.3}% 25
-\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 26
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.2}{Linear and quadratic discriminant analysis for functional data}{chapter.4}% 21
+\BOOKMARK [2][-]{subsection.4.2.1}{Finite dimensional case}{section.4.2}% 22
+\BOOKMARK [1][-]{section.4.3}{Classification of functional fragments}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.3.1}{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{section.4.3}% 24
+\BOOKMARK [1][-]{section.4.4}{A probabilistic approach to classification}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.4.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.4}% 26
+\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 27

@@ -675,8 +675,63 @@ which is obviously not Hilbert-Schmidt.\\
 This last example emphasizes the difference between the finite and the infinite dimensional case. In the former, measures $N_{0, \Sigma}, N_{0,\alpha\Sigma}$ are always equivalent and can actually become arbitrarily close as $\alpha\to 1$. In infinite dimensions, the measures are equivalent if and only if $\alpha=1$.
 
 \chapter{Classification of functional data}
+\section{Introduction}
+In the last section, we have shown that Gaussian measures can often be singular. In the context of classification, this translates to the result that one can perform perfect classification on sample from these measures. Concretely, suppose we have probability measures $\mu,\nu$ on $(\Omega,\mathcal{F})$ that are singular. Let $A,B \in \mathcal{F}$ with $\Omega = A \sqcup B$ and
+$$\mu(A)=1,\ \nu(B)=1,\ \mu(B)=0,\ \nu(A)=0.$$
+Suppose now that we want to classify samples $\omega\in \Omega$ as coming from measure $\mu$ or $\nu$. We can simply use the classifier 
+$$C(\omega) = 
+\begin{cases}
+	\mu & \text{if } \omega\in A\\
+	\nu & \text{if } \omega\in B.
+\end{cases}$$
+This rule will perform perfect classification, meaning that if $\omega$ is indeed sampled from either $\mu$ or $\nu$, the classifier will output the true measure with probability one.\\
+The problem is that the sets $A$ and $B$ are not known in general, so this classifier cannot be used in practice. However, we will show that in the case of singular Gaussian measures on Hilbert spaces, one can construct a classifier that will achieve this perfect classification.
+
+Suppose now that we have two equivalent measures $\mu_0$ and $\mu_1$ on $(\Omega,\mathcal{F})$. Define the measure $\kappa$ on $\Omega\times \{0,1\}$ by 
+$$\kappa(A) = \kappa\left(A_0 \sqcup A_1\right) = p\cdot \mu_0(A_0) + (1-p)\cdot\mu_1(A_1),\ A_i = A \cap (\Omega\times \{i\}), \ p\in [0,1].$$
+Concretely, $\kappa$ is the measure that is $\mu_0$ with probability $p$ and $\mu_1$ with probability $1-p$. The classification task is then to estimate $y$ from $\omega$ for $(\omega,y)\sim \kappa$. It is well-known that the classifier achieving the lowest misclassification probability is the Bayes rule $\mathbf{1}[C^*(\omega)>1]$ with
+\begin{equation}\label{bayesclass}
+	C^*(\omega) = \frac{\Pp_{(X,Y)\sim \kappa}[Y=1\mid X=\omega]}{\Pp_{(X,Y)\sim \kappa}[Y=0\mid X=\omega]} =\frac{1-p}{p}\frac{d\mu_1}{d\mu_0}(\omega),
+\end{equation}
+see \cite[Theorem 2.1]{devroye}. The problem this time is that the Radon-Nikodym derivative $\frac{d\mu_1}{d\mu_0}$ is not known in general. However, using the results shown in the previous chapter, for Gaussian measures the derivative can be explicitly written in terms of the parameters of the measures. We will see in this chapter how to use these expressions to design classifiers.
+
+We will only consider the \emph{linear} and \emph{quadratic discriminant analysis} methods for binary classification. These are well-know classifier in the finite dimensional case that can easily be extended to infinite dimensions. We note that there are many other classifiers on functional data that have been developed, e.g., nearest neighbors, kernel and depth classifiers. An overview of these techniques can be found in \cite[Chapter 10]{oxford}.
+
 \section{Linear and quadratic discriminant analysis for functional data}
-\subsection{Explain LDA and QDA}
+\subsection{Finite dimensional case}
+Linear and quadratic discriminant analysis (LDA and QDA) in $\R^d$ are two of the most basic classification methods that can be traced back to the work of Fischer in the thirties. Despite their simplicity, their performances are often close to those of more complex classifiers. The idea behind them is essentially that of maximum likelihood estimation.\\
+Concretely, we suppose that we have two populations on $\R^d$, the first one $\Pi_0$ following a Gaussian distribution with mean $\mu_0$ and covariance $\Sigma_0$ and the second $\Pi_1$ following a Gaussian distribution with mean $\mu_1$ and covariance $\Sigma_1$. Denote by $f_i(x)$ the probability density function of $\Pi_i$. Then, the QDA classifier classifies an observation $x\in \R^d$ as coming from population $\Pi_1$ if and only if 
+$$1<\frac{(1-p)\cdot f_1(x)}{p\cdot f_0(x)}=\frac{\vert \Sigma_0\vert^{1/2}}{\vert \Sigma_1\vert^{1/2}}\exp\left[-\frac{1}{2}\left\{ (x-\mu_1)^T\Sigma_1^{-1} (x-\mu_1) - (x-\mu_0)^T\Sigma_0^{-1} (x-\mu_0) \right\} \right],$$
+or equivalently if 
+$$\log\left(\frac{p}{1-p}\right) < \log \vert \Sigma_0\vert - \log \vert \Sigma_1\vert - (x-\mu_1)^T\Sigma_1^{-1} (x-\mu_1) + (x-\mu_0)^T\Sigma_0^{-1} (x-\mu_0),$$
+where $p= \Pp[x \in \Pi_0]$ is a constant often taken to be $1/2$ without any a priori knowledge.\\
+Linear discriminant analysis is used in the same framework where we further assume that $\Sigma_0 = \Sigma_1 \coloneqq \Sigma$. In that case, the classification rule simplifies to 
+$$2\log\left(\frac{p}{1-p}\right) < 2(x-\mu_1)^T\Sigma^{-1} (\mu_1-\mu_0) + (\mu_1-\mu_0)^T\Sigma^{-1} (\mu_1-\mu_0)$$
+Defining 
+$$w = 2\Sigma^{-1}(\mu_1-\mu_0) \ \text{ and } \ c = 2\log\left(\frac{p}{1-p}\right) - (\mu_1-\mu_0)^T\Sigma^{-1} (\mu_1-\mu_0),$$
+the LDA rule classifies $x$ to population $\Pi_1$ if and only if
+$$w^Tx>c.$$
+Thus, it is a \emph{linear classifier}, meaning that it projects the data in the direction given by $w$ and then classifies using only these projections. This yields a simple and fast algorithm, yet powerful. An example is shown in Figure 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Code/images/42/LDAex}
+		\caption{LDA}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Code/images/42/QDAex}
+		\caption{QDA}
+	\end{subfigure}
+	\caption{Example of LDA and QDA where the decision boundary is shown in black.}
+	\label{fig:LQDAex}
+\end{figure}
+We note that both LDA and QDA are equivalent to the Bayes rule \ref{bayesclass} when the assumptions of normality and homoscedasticity (for the LDA) are satisfied. Indeed, the likelihood ratio $f_1(x)/f_0(x)$ is equal to the Radon-Nikodym derivative of the two induced Gaussian measures in this case.
+
+In practice, none of the parameters $\mu_i,\Sigma_i$ are known. They can be estimated in the usual way by the empirical estimators $\hat{\mu}_i,\hat{\Sigma}_i$. These can then be plugged into either the LDA or QDA rules. 
+
+
 \section{Classification of functional fragments}
 \subsection{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}
 \section{A probabilistic approach to classification}

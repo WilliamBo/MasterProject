@@ -36,6 +36,16 @@ Descary, M.-H. and Panaretos, V.~M. (2016).
 Descary, M.-H. and Panaretos, V.~M. (2017).
 \newblock Recovering covariance from functional fragments.
 
+\bibitem[Devroye et~al., 2013]{devroye}
+Devroye, L., Gy{\"o}rfi, L., and Lugosi, G. (2013).
+\newblock {\em A Probabilistic Theory of Pattern Recognition}.
+\newblock Stochastic Modelling and Applied Probability. Springer New York.
+
+\bibitem[Ferraty and Romain, 2010]{oxford}
+Ferraty, F. and Romain, Y. (2010).
+\newblock {\em The Oxford Handbook of Functional Data Analysis}.
+\newblock Oxford Handbooks in Mathematics. OUP Oxford.
+
 \bibitem[Krantz and Parks, 2002]{analprimer}
 Krantz, S. and Parks, H. (2002).
 \newblock {\em A Primer of Real Analytic Functions}.
