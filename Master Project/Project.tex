@@ -391,8 +391,8 @@ We have the following properties:
 \section{Gaussian measures in infinite dimensions}
 We now investigate the construction and properties of Gaussian measures in infinite dimensional space, with a focus on separable Hilbert spaces. Our exposition follows those of \cite{prato1} and \cite{prato2}.\\
 The following results demonstrates the main reason why measure theory is much more complicated in infinite dimension: there is no equivalent of the Lebesgue measure in any infinite dimensional normed vector space.
-\begin{prop}
-	Let $(V,\Vert \cdot \Vert)$ be an infinite dimensional separable normed vector space. If $\mu$ is a measure on $V$ that is locally finite and translation invariant, then $\mu(A) \equiv 0$. 
+\begin{prop}\label{noleb}
+	Let $(V,\Vert \cdot \Vert)$ be an infinite dimensional separable normed vector space. If $\mu$ is a measure on $V$ that is locally finite and translation invariant, then $\mu \equiv 0$. 
 	\begin{proof}
 		Suppose such a measure $\mu$ exists. Let $B$ be an open ball with finite measure. By Riesz's lemma, $B$ contains the countable disjoint union of open balls $\{B_n\}_{n=1}^\infty$ each with same radius $\delta$. Since $\mu$ is translation invariant, these balls all have the same measure. Then we get the following inequality
 		$$\mu\left(\sqcup_{n=1}^\infty B_n\right) = \sum_{n=1}^{\infty}\mu(B_n) = \sum_{n=1}^{\infty}\mu(B_1) \leq \mu(B) < \infty.$$
@@ -615,12 +615,12 @@ We now want to apply these result in the Gaussian case. For that purpose, we wil
 	\end{proof}
 \end{lemma}
 As a first application of Theorem \ref{kakutani}, we look at Gaussian measures having the same covariance. As we saw earlier, this case is very simple in finite dimensions. There, two Gaussian measures with the same covariance matrix are equivalent if and only if the difference of their mean is in the range of the (square root of the) covariance matrix. The next theorem shows that the exact same conclusion is true in a separable Hilbert space $H$.
-\begin{theorem}
+\begin{theorem}\label{radnikgauss}
 	Let $N_{a_1,Q}$ and  $N_{a_2,Q}$ be Gaussian measures on $H$. Then,
 	\begin{itemize}
 		\item[1.] They are either equivalent or singular.
 		\item[2.] They are equivalent if and only if $a_1-a_2 \in Q^{1/2}(H)$. In that case the Radon-Nikodym derivative is given by 
-		$$\frac{dN_{a_1,Q}}{dN_{a_2,Q}}(x) = ,\exp\left[\langle Q^{-1/2}(a_1-a_2),Q^{-1/2}(x-a_2)\rangle - \frac{1}{2} \Vert Q^{-1/2}(a_1-a_2)\Vert^2 \right]$$
+		$$\frac{dN_{a_1,Q}}{dN_{a_2,Q}}(x) = \exp\left[\langle Q^{-1/2}(a_1-a_2),Q^{-1/2}(x-a_2)\rangle - \frac{1}{2} \Vert Q^{-1/2}(a_1-a_2)\Vert^2 \right]$$
 		for $N_{a_2,Q}$-almost all $x \in H$.
 	\end{itemize}
 	\begin{proof}
@@ -675,7 +675,7 @@ which is obviously not Hilbert-Schmidt.\\
 This last example emphasizes the difference between the finite and the infinite dimensional case. In the former, measures $N_{0, \Sigma}, N_{0,\alpha\Sigma}$ are always equivalent and can actually become arbitrarily close as $\alpha\to 1$. In infinite dimensions, the measures are equivalent if and only if $\alpha=1$.
 
 \chapter{Classification of functional data}
-\section{Introduction}
+\section{Introduction}\label{sec:introclass}
 In the last section, we have shown that Gaussian measures can often be singular. In the context of classification, this translates to the result that one can perform perfect classification on sample from these measures. Concretely, suppose we have probability measures $\mu,\nu$ on $(\Omega,\mathcal{F})$ that are singular. Let $A,B \in \mathcal{F}$ with $\Omega = A \sqcup B$ and
 $$\mu(A)=1,\ \nu(B)=1,\ \mu(B)=0,\ \nu(A)=0.$$
 Suppose now that we want to classify samples $\omega\in \Omega$ as coming from measure $\mu$ or $\nu$. We can simply use the classifier 
@@ -708,10 +708,10 @@ where $p= \Pp[x \in \Pi_0]$ is a constant often taken to be $1/2$ without any a 
 Linear discriminant analysis is used in the same framework where we further assume that $\Sigma_0 = \Sigma_1 \coloneqq \Sigma$. In that case, the classification rule simplifies to 
 $$2\log\left(\frac{p}{1-p}\right) < 2(x-\mu_1)^T\Sigma^{-1} (\mu_1-\mu_0) + (\mu_1-\mu_0)^T\Sigma^{-1} (\mu_1-\mu_0)$$
 Defining 
-$$w = 2\Sigma^{-1}(\mu_1-\mu_0) \ \text{ and } \ c = 2\log\left(\frac{p}{1-p}\right) - (\mu_1-\mu_0)^T\Sigma^{-1} (\mu_1-\mu_0),$$
+$$w = 2\Sigma^{-1}(\mu_1-\mu_0) \ \text{ and } \ c = 2\log\left(\frac{p}{1-p}\right) - (\mu_1-\mu_0)^T\Sigma^{-1} (\mu_1-\mu_0) + w^T\mu_1,$$
 the LDA rule classifies $x$ to population $\Pi_1$ if and only if
 $$w^Tx>c.$$
-Thus, it is a \emph{linear classifier}, meaning that it projects the data in the direction given by $w$ and then classifies using only these projections. This yields a simple and fast algorithm, yet powerful. An example is shown in Figure 
+Thus, it is a \emph{linear classifier}, meaning that it projects the data in the direction given by $w$ and then classifies using only these projections. This yields a simple and fast algorithm, yet powerful. An example is shown in Figure \ref{fig:LQDAex}.
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -727,9 +727,65 @@ Thus, it is a \emph{linear classifier}, meaning that it projects the data in the
 	\caption{Example of LDA and QDA where the decision boundary is shown in black.}
 	\label{fig:LQDAex}
 \end{figure}
-We note that both LDA and QDA are equivalent to the Bayes rule \ref{bayesclass} when the assumptions of normality and homoscedasticity (for the LDA) are satisfied. Indeed, the likelihood ratio $f_1(x)/f_0(x)$ is equal to the Radon-Nikodym derivative of the two induced Gaussian measures in this case.
+We note that both LDA and QDA are equivalent to the Bayes rule \ref{bayesclass} when the assumptions of normality and homoscedasticity (for the LDA) are satisfied. Indeed, the likelihood ratio $f_1(x)/f_0(x)$ is equal to the Radon-Nikodym derivative of the two induced Gaussian measures in this case. Thus, under these assumptions, LDA and QDA are optimal classifiers.
 
-In practice, none of the parameters $\mu_i,\Sigma_i$ are known. They can be estimated in the usual way by the empirical estimators $\hat{\mu}_i,\hat{\Sigma}_i$. These can then be plugged into either the LDA or QDA rules. 
+In practice, none of the parameters $\mu_i,\Sigma_i$ are known. They can be estimated in the usual way by the empirical estimators $\hat{\mu}_i,\hat{\Sigma}_i$. These can then be plugged into either the LDA or QDA rules. Since these estimators converge to their associated real values, LDA and QDA using these estimates are asymptotically optimal.
+
+Without the Gaussian assumption, LDA can still be seen as the optimal linear classifier in the following sense. Suppose here that $p=1/2$, then the direction $v$ with $\Vert v\Vert=1$ maximizing the variance of $v^TX$ is $w$ given by the LDA rule, where $X\sim \frac{1}{2}\Pi_0 + \frac{1}{2}\Pi_1$. Indeed, we have 
+\begin{eqnarray*}
+	\mathrm{Var}[v^T X] & = & \E[\mathrm{Var}[v^TX\mid \Pi]] + \mathrm{Var}[\E[v^TX \mid \Pi]] = v^T\Sigma v + \left(v^T\left(\frac{\mu_0-\mu_1}{2}\right)\right)^2 \\
+	& = & v^T \left(\Sigma + \left(\frac{\mu_0-\mu_1}{2}\right)\left(\frac{\mu_0-\mu_1}{2}\right)^T \right)v\\
+	& = & (\Sigma^{1/2} v)^T \left(I + \Sigma^{-1/2}\left(\frac{\mu_0-\mu_1}{2}\right)\left(\frac{\mu_0-\mu_1}{2}\right)^T\Sigma^{-1/2} \right)(\Sigma^{1/2} v)
+\end{eqnarray*}
+The maximum of this last expression, conditioned on $\Vert v\Vert=1$, is attained when $\Sigma^{1/2}v$ is the first eigenvector of the matrix in the middle. This eigenvector is easily seen to be $\Sigma^{-1/2}(\frac{\mu_0-\mu_1}{2})$, giving
+$$v = \Sigma^{-1}\left(\frac{\mu_0-\mu_1}{2}\right) \propto w.$$
+Intuitively, the direction maximizing $\mathrm{Var}[v^T X]$ is the one on which the projections of the two populations are the most well-separated.
+
+\subsection{Infinite dimensional case: Equivalent Gaussian measures}
+In the infinite dimensional case, densities do not exist (as there is no Lebesgue measure, see Prop. \ref{noleb}). However, for separable Hilbert spaces and Gaussian random element on them, the theory developed in the last chapter allows us to construct powerful classifiers. \\
+For example, suppose we have to populations on a separable Hilbert space $H$, $\Pi_0,\Pi_1$, that follow have Gaussian distributions with mean $\mu_0,\mu_1$ and same covariance operator $Q$. Suppose further that $\mu_1-\mu_0 \in Q^{1/2}(H)$. Then, using Theorem \ref{radnikgauss}, one can construct the Bayes classifier $\mathbf{1}[C^*(x)>1]$ with (assume $p=1/2$)
+$$C^*(x) = \frac{dN_{\mu_1,Q}}{dN_{\mu_0,Q}}(x) =  \exp\left[\langle Q^{-1/2}(\mu_1-\mu_0),Q^{-1/2}(x-\mu_0)\rangle - \frac{1}{2} \Vert Q^{-1/2}(\mu_1-\mu_0)\Vert^2 \right].$$
+Equivalently, it classifies to $\Pi_1$ if 
+\begin{eqnarray*}
+	& & \frac{1}{2} \Vert Q^{-1/2}(\mu_1-\mu_0)\Vert^2 <\langle Q^{-1/2}(\mu_1-\mu_0),Q^{-1/2}(x-\mu_0)\rangle  \\
+	& \iff & \frac{1}{2} \Vert Q^{-1/2}(\mu_1-\mu_0)\Vert^2 + \langle Q^{-1}(\mu_1-\mu_0),\mu_0\rangle < \langle Q^{-1}(\mu_1-\mu_0),x\rangle.
+\end{eqnarray*}
+This rule is, mutatis mutandis, the same as the LDA rule in finite dimension. We therefore also call it the LDA rule. As in finite dimension, the classification depends only on the projection of $x$ on the 1-dimensional subspace spanned by $Q^{-1}(\mu_1-\mu_0)$. Therefore, the LDA rule reduces the classification of infinite dimensional objects, like functions, to a one dimensional problem.\\
+As in the finite dimensional case, such a nice linear behavior is not present when the covariance operator of the two populations is not the same. In that case, one can in general still write down the Radon-Nikodym derivative, see \cite[Coro. 6.4.11]{boga}, and thus use the Bayes classifier as above. This yields a generalization of the QDA rule.\\
+The proof that LDA is the variance-maximizer linear classifier is still valid in the Hilbert space framework. One needs just one the inner product in $H$ instead of that of $\R^d$. The LDA rule is also optimal in another way: it is the best linear centroid classifier, see \cite[Section 2.2]{DH3}. A centroid classifier classifies a sample $x$ to population $\Pi_1$ if and only if $d(x,\mu_1)<d(x,\mu_0)$,
+where $d$ is a (pseudo)metric on $H$. When the distance used is 
+$$d_v(x,\mu_i) = \vert \langle x,v \rangle - \langle \mu_i, v\rangle\vert,$$
+we call it the linear centroid classifier with direction $v$. One easily sees that the LDA rule is equivalent to 
+$$0 < d_v^2(x,\mu_0)-d_v^2(x,\mu_1),$$
+with $v=Q^{-1}(\mu_1-\mu_0)$. Thus, it is a linear centroid classifier. The next proposition shows that it is optimal. 
+\begin{prop}
+	Let $\Pi_0,\Pi_1$ have a Gaussian distribution with mean $\mu_0,\mu_1$ and covariance $Q$. Suppose $\mu_1-\mu_0 \in Q^{1/2}(H)$. Then, the linear centroid classifier having the lowest misclassification probability is the one with direction $Q^{-1}(\mu_1-\mu_0)$.
+	\begin{proof}
+		Lets compute the probability of misclassifying an element from population $\Pi_1$ in population $\Pi_0$:
+		\begin{eqnarray*}
+			\Pp_{\Pi_1}\left[d_v(x,\mu_1)\geq d_v(x,\mu_0)\right] & = & \Pp_{\Pi_1}\left[\left(\langle x,v\rangle- \langle \mu_1,v\rangle\right)^2\geq \left(\langle x,v\rangle- \langle \mu_0,v\rangle\right)^2\right] \\
+			& = & \Pp_{\Pi_1}\left[2\langle x,v \rangle\langle \mu_0-\mu_1,v \rangle + \langle \mu_1,v \rangle^2 - \langle \mu_0,v \rangle^2 \geq 0 \right] \\
+			& = & \Pp_{\Pi_1}\left[ \langle x, v \rangle \geq \frac{\langle \mu_0 + \mu_1, v \rangle}{2}  \right] = 1 - \Phi\left(\frac{\langle\mu_0-\mu_1,v\rangle}{2\sqrt{\langle Qv,v\rangle}}\right)
+		\end{eqnarray*}
+		A quick computation shows that $\Pp_{\Pi_1}\left[d_v(x,\mu_1)\geq d_v(x,\mu_0)\right] = \Pp_{\Pi_0}\left[d_v(x,\mu_1) < d_v(x,\mu_0)\right]$, so that the overall probability of misclassification is 
+		$$\frac{1}{2}  \Pp_{\Pi_1}\left[d_v(x,\mu_1)\geq d_v(x,\mu_0)\right] + \frac{1}{2}\Pp_{\Pi_0}\left[d_v(x,\mu_1) < d_v(x,\mu_0)\right] = 1 - \Phi\left(\frac{\langle\mu_0-\mu_1,v\rangle}{2\sqrt{\langle Qv,v\rangle}}\right).$$
+		The problem of minimizing the misclassification probability is thus equivalent to the maximization problem
+		$$ \max_{v\in H} \frac{\langle\mu_0-\mu_1,v\rangle}{\sqrt{\langle Qv,v\rangle}} \iff \max_{v\in H} \frac{\langle\mu_0-\mu_1,v\rangle^2}{\langle Qv,v\rangle}.$$
+		Now, by the Cauchy-Schwarz inequality, 
+		$$ \frac{\langle\mu_0-\mu_1,v\rangle^2}{\langle Qv,v\rangle} = \frac{\langle Q^{-1/2}(\mu_0-\mu_1),Q^{1/2}v\rangle^2}{\langle Q^{1/2}v,Q^{1/2}v\rangle} \leq \frac{\Vert Q^{-1/2}(\mu_0-\mu_1)\Vert^2 \ \Vert Q^{1/2}v\Vert^2 }{\Vert Q^{1/2}v\Vert^2} = \Vert Q^{-1/2}(\mu_0-\mu_1)\Vert^2,$$
+		where the inequality is an equality if and only if 
+		$$ v \propto Q^{-1}(\mu_0-\mu_1).$$
+		In particular, the LDA direction $v=Q^{-1}(\mu_1-\mu_0)$ achieves this maximum and is thus optimal.
+	\end{proof}
+\end{prop}
+The proof of the previous proposition shows that the misclassification probability of LDA is $1-\Phi\left(\Vert Q^{-1/2}(\mu_1-\mu_0)\Vert/2\right)$. Thus, the larger $\mu_1-\mu_0$ is in the RKHS of $Q$, the better the classification is.\\
+We note that although the analysis of these classifiers is performed with the assumptions that the distributions are Gaussian, they also perform well when this assumption is not satisfied. 
+\subsection{Infinite dimensional case: Singular Gaussian measures}
+A natural question now is: what happens when $\mu_1-\mu_0 \notin Q^{1/2}(H)$? In that case, by Theorem \ref{radnikgauss}, the distributions of $\Pi_0$ and $\Pi_1$ are singular. Let $A,B\in \mathcal{B}(H)$ form a partition of $H$ with $N_{\mu_0,Q}(B)=N_{\mu_1,Q}(A)=0$. Then, a perfect classifier would be $\mathbf{1}[x\in B]$, see Section \ref{sec:introclass}. The sets $A$ and $B$ cannot be written down explicitly. However, using the LDA approach, one can construct sequences of classifiers $C_n(x)$ that are asymptotically perfect, i.e.,
+$$\lim_{n\to \infty} \left(\frac{1}{2}\Pp_{\Pi_0}[C_n(x)=1] + \frac{1}{2}\Pp_{\Pi_1}[C_n(x)=0]\right)=0.$$
+Following \cite{Kraus2}, we will present three techniques for constructing such sequences based on the LDA classifier.	
+
+
 
 
 \section{Classification of functional fragments}
@@ -748,7 +804,7 @@ In practice, none of the parameters $\mu_i,\Sigma_i$ are known. They can be esti
 
 
 \bibliography{biblio} 
-\bibliographystyle{apalike}
+\bibliographystyle{hapalike}
 
 
 

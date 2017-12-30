@@ -20,8 +20,10 @@
 \BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 20
 \BOOKMARK [1][-]{section.4.2}{Linear and quadratic discriminant analysis for functional data}{chapter.4}% 21
 \BOOKMARK [2][-]{subsection.4.2.1}{Finite dimensional case}{section.4.2}% 22
-\BOOKMARK [1][-]{section.4.3}{Classification of functional fragments}{chapter.4}% 23
-\BOOKMARK [2][-]{subsection.4.3.1}{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{section.4.3}% 24
-\BOOKMARK [1][-]{section.4.4}{A probabilistic approach to classification}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.4.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.4}% 26
-\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 27
+\BOOKMARK [2][-]{subsection.4.2.2}{Infinite dimensional case: Equivalent Gaussian measures}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.3}{Infinite dimensional case: Singular Gaussian measures}{section.4.2}% 24
+\BOOKMARK [1][-]{section.4.3}{Classification of functional fragments}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.3.1}{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{section.4.3}% 26
+\BOOKMARK [1][-]{section.4.4}{A probabilistic approach to classification}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.4.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 29

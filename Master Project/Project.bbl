@@ -1,5 +1,10 @@
 \begin{thebibliography}{}
 
+\bibitem[Bogachev, 2015]{boga}
+Bogachev, V. (2015).
+\newblock {\em Gaussian Measures:}.
+\newblock Mathematical Surveys and Monographs. American Mathematical Society.
+
 \bibitem[Da~Prato, 2006]{prato1}
 Da~Prato, G. (2006).
 \newblock {\em An Introduction to Infinite-Dimensional Analysis}.
@@ -16,25 +21,34 @@ Debnath, L. and Mikusinski, P. (2005).
 \newblock {\em Introduction to Hilbert Spaces with Applications}.
 \newblock Elsevier Science.
 
+\bibitem[Delaigle and Hall, 2012]{DH3}
+Delaigle, A. and Hall, P. (2012).
+\newblock Achieving near perfect classification for functional data.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 74(2):267--286.
+
 \bibitem[Delaigle and Hall, 2013]{DH1}
 Delaigle, A. and Hall, P. (2013).
 \newblock Classification using censored functional data.
 \newblock {\em Journal of the American Statistical Association},
-  108(504):1269--1283.
+  108(504):1269--1283, https://doi.org/10.1080/01621459.2013.824893.
 
 \bibitem[Delaigle and Hall, 2016]{DH2}
 Delaigle, A. and Hall, P. (2016).
 \newblock Approximating fragmented functional data by segments of markov
   chains.
 \newblock {\em Biometrika}, 103(4):779--799.
+  
 
 \bibitem[Descary and Panaretos, 2016]{DP1}
 Descary, M.-H. and Panaretos, V.~M. (2016).
 \newblock Functional data analysis by matrix completion.
+\newblock arXiv:1609.00834.
 
 \bibitem[Descary and Panaretos, 2017]{DP2}
 Descary, M.-H. and Panaretos, V.~M. (2017).
 \newblock Recovering covariance from functional fragments.
+\newblock arXiv:1708.02491.
 
 \bibitem[Devroye et~al., 2013]{devroye}
 Devroye, L., Gy{\"o}rfi, L., and Lugosi, G. (2013).
@@ -56,5 +70,11 @@ Kraus, D. (2015).
 \newblock Components and completion of partially observed functional data.
 \newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)}, 77(4):777--801.
+
+\bibitem[Kraus and Stefanucci, 2017]{Kraus2}
+Kraus, D. and Stefanucci, M. (2017).
+\newblock Classification of functional fragments by regularized linear
+  classifiers with domain selection.
+\newblock arXiv:1708.08257.
 
 \end{thebibliography}

@@ -20,8 +20,10 @@
 \contentsline {section}{\numberline {4.1}Introduction}{22}{section.4.1}
 \contentsline {section}{\numberline {4.2}Linear and quadratic discriminant analysis for functional data}{23}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Finite dimensional case}{23}{subsection.4.2.1}
-\contentsline {section}{\numberline {4.3}Classification of functional fragments}{24}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{24}{subsection.4.3.1}
-\contentsline {section}{\numberline {4.4}A probabilistic approach to classification}{24}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{24}{subsection.4.4.1}
-\contentsline {chapter}{\numberline {5}Numerical experiments}{25}{chapter.5}
+\contentsline {subsection}{\numberline {4.2.2}Infinite dimensional case: Equivalent Gaussian measures}{24}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Infinite dimensional case: Singular Gaussian measures}{26}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Classification of functional fragments}{26}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}{26}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}A probabilistic approach to classification}{26}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{26}{subsection.4.4.1}
+\contentsline {chapter}{\numberline {5}Numerical experiments}{27}{chapter.5}
