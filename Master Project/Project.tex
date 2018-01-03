@@ -24,6 +24,7 @@
 \newcommand{\p}[0]{\mathfrak{p}}
 \newcommand{\I}[0]{\mathcal{I}}
 \newcommand{\F}[0]{\mathcal{F}}
+\newcommand{\Oo}[0]{\mathcal{O}}
 \newcommand{\vv}[0]{\mathbf{v}}
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
@@ -73,7 +74,7 @@
 \section{Statistical analysis of functional data}
 \subsection{Explain the basic principles of estimation of mean and covariance with convergence rates, etc.. Also mention smoothing methods. }
 
-\chapter{Censored functional data}
+\chapter{Censored functional data}\label{chap:frags}
 \section{Functional fragments framework}\label{introfrag}
 \textit{Censored functional data} or \textit{functional fragments} are functional data that are not observed in the full domain on which they are defined. If the data live in $\Ll^2(\mathcal{I})$ for some interval $\mathcal{I} \subset \R$, an example of functional fragment is a function $f \in \Ll^2(\mathcal{J})$ for some interval $\mathcal{J}\subset \mathcal{I}$.
 
@@ -155,7 +156,7 @@ For the covariance operator, even though the theoretical convergence rate is goo
 	\label{fig:excov}
 \end{figure}
 
-\section{Curve extension}
+\section{Curve extension}\label{sec:curveext}
 In \cite{DH1}, the authors take the approach of manually extend the fragments by gluing some of their parts. This procedure is carried on in the context of classification, but it can readily be expended to the plain estimation of the population mean and covariance.\\
 The extension of a fragment to the right is done by iteratively gluing a small section of another randomly chosen nearby fragment to the right endpoint of the original fragment. Likewise for the extension to the left. A few steps of this procedure are shown in Figure \ref{fig:gluingsteps}.
 \begin{figure}[htp]
@@ -703,7 +704,9 @@ Linear and quadratic discriminant analysis (LDA and QDA) in $\R^d$ are two of th
 Concretely, we suppose that we have two populations on $\R^d$, the first one $\Pi_0$ following a Gaussian distribution with mean $\mu_0$ and covariance $\Sigma_0$ and the second $\Pi_1$ following a Gaussian distribution with mean $\mu_1$ and covariance $\Sigma_1$. Denote by $f_i(x)$ the probability density function of $\Pi_i$. Then, the QDA classifier classifies an observation $x\in \R^d$ as coming from population $\Pi_1$ if and only if 
 $$1<\frac{(1-p)\cdot f_1(x)}{p\cdot f_0(x)}=\frac{\vert \Sigma_0\vert^{1/2}}{\vert \Sigma_1\vert^{1/2}}\exp\left[-\frac{1}{2}\left\{ (x-\mu_1)^T\Sigma_1^{-1} (x-\mu_1) - (x-\mu_0)^T\Sigma_0^{-1} (x-\mu_0) \right\} \right],$$
 or equivalently if 
-$$\log\left(\frac{p}{1-p}\right) < \log \vert \Sigma_0\vert - \log \vert \Sigma_1\vert - (x-\mu_1)^T\Sigma_1^{-1} (x-\mu_1) + (x-\mu_0)^T\Sigma_0^{-1} (x-\mu_0),$$
+\begin{equation}\label{qdarule}
+	2\log\left(\frac{p}{1-p}\right) < \log \vert \Sigma_0\vert - \log \vert \Sigma_1\vert - (x-\mu_1)^T\Sigma_1^{-1} (x-\mu_1) + (x-\mu_0)^T\Sigma_0^{-1} (x-\mu_0),
+\end{equation}
 where $p= \Pp[x \in \Pi_0]$ is a constant often taken to be $1/2$ without any a priori knowledge.\\
 Linear discriminant analysis is used in the same framework where we further assume that $\Sigma_0 = \Sigma_1 \coloneqq \Sigma$. In that case, the classification rule simplifies to 
 $$2\log\left(\frac{p}{1-p}\right) < 2(x-\mu_1)^T\Sigma^{-1} (\mu_1-\mu_0) + (\mu_1-\mu_0)^T\Sigma^{-1} (\mu_1-\mu_0)$$
@@ -751,7 +754,7 @@ Equivalently, it classifies to $\Pi_1$ if
 	& \iff & \frac{1}{2} \Vert Q^{-1/2}(\mu_1-\mu_0)\Vert^2 + \langle Q^{-1}(\mu_1-\mu_0),\mu_0\rangle < \langle Q^{-1}(\mu_1-\mu_0),x\rangle.
 \end{eqnarray*}
 This rule is, mutatis mutandis, the same as the LDA rule in finite dimension. We therefore also call it the LDA rule. As in finite dimension, the classification depends only on the projection of $x$ on the 1-dimensional subspace spanned by $Q^{-1}(\mu_1-\mu_0)$. Therefore, the LDA rule reduces the classification of infinite dimensional objects, like functions, to a one dimensional problem.\\
-As in the finite dimensional case, such a nice linear behavior is not present when the covariance operator of the two populations is not the same. In that case, one can in general still write down the Radon-Nikodym derivative, see \cite[Coro. 6.4.11]{boga}, and thus use the Bayes classifier as above. This yields a generalization of the QDA rule.\\
+As in the finite dimensional case, such a nice linear behavior is not present when the covariance operator of the two populations is not the same. In that case, one can in general still write down the Radon-Nikodym derivative, see \cite[Coro. 6.4.11]{boga}, and thus use the Bayes classifier as above. This yields a generalization of the QDA rule. See also Section \ref{qdainf} for a more direct approach.  \\
 The proof that LDA is the variance-maximizer linear classifier is still valid in the Hilbert space framework. One needs just one the inner product in $H$ instead of that of $\R^d$. The LDA rule is also optimal in another way: it is the best linear centroid classifier, see \cite[Section 2.2]{DH3}. A centroid classifier classifies a sample $x$ to population $\Pi_1$ if and only if $d(x,\mu_1)<d(x,\mu_0)$,
 where $d$ is a (pseudo)metric on $H$. When the distance used is 
 $$d_v(x,\mu_i) = \vert \langle x,v \rangle - \langle \mu_i, v\rangle\vert,$$
@@ -768,7 +771,9 @@ with $v=Q^{-1}(\mu_1-\mu_0)$. Thus, it is a linear centroid classifier. The next
 			& = & \Pp_{\Pi_1}\left[ \langle x, v \rangle \geq \frac{\langle \mu_0 + \mu_1, v \rangle}{2}  \right] = 1 - \Phi\left(\frac{\langle\mu_0-\mu_1,v\rangle}{2\sqrt{\langle Qv,v\rangle}}\right)
 		\end{eqnarray*}
 		A quick computation shows that $\Pp_{\Pi_1}\left[d_v(x,\mu_1)\geq d_v(x,\mu_0)\right] = \Pp_{\Pi_0}\left[d_v(x,\mu_1) < d_v(x,\mu_0)\right]$, so that the overall probability of misclassification is 
-		$$\frac{1}{2}  \Pp_{\Pi_1}\left[d_v(x,\mu_1)\geq d_v(x,\mu_0)\right] + \frac{1}{2}\Pp_{\Pi_0}\left[d_v(x,\mu_1) < d_v(x,\mu_0)\right] = 1 - \Phi\left(\frac{\langle\mu_0-\mu_1,v\rangle}{2\sqrt{\langle Qv,v\rangle}}\right).$$
+		\begin{equation}\label{probmisclass}
+			\frac{1}{2}  \Pp_{\Pi_1}\left[d_v(x,\mu_1)\geq d_v(x,\mu_0)\right] + \frac{1}{2}\Pp_{\Pi_0}\left[d_v(x,\mu_1) < d_v(x,\mu_0)\right] = 1 - \Phi\left(\frac{\langle\mu_0-\mu_1,v\rangle}{2\sqrt{\langle Qv,v\rangle}}\right).
+		\end{equation}
 		The problem of minimizing the misclassification probability is thus equivalent to the maximization problem
 		$$ \max_{v\in H} \frac{\langle\mu_0-\mu_1,v\rangle}{\sqrt{\langle Qv,v\rangle}} \iff \max_{v\in H} \frac{\langle\mu_0-\mu_1,v\rangle^2}{\langle Qv,v\rangle}.$$
 		Now, by the Cauchy-Schwarz inequality, 
@@ -783,13 +788,90 @@ We note that although the analysis of these classifiers is performed with the as
 \subsection{Infinite dimensional case: Singular Gaussian measures}
 A natural question now is: what happens when $\mu_1-\mu_0 \notin Q^{1/2}(H)$? In that case, by Theorem \ref{radnikgauss}, the distributions of $\Pi_0$ and $\Pi_1$ are singular. Let $A,B\in \mathcal{B}(H)$ form a partition of $H$ with $N_{\mu_0,Q}(B)=N_{\mu_1,Q}(A)=0$. Then, a perfect classifier would be $\mathbf{1}[x\in B]$, see Section \ref{sec:introclass}. The sets $A$ and $B$ cannot be written down explicitly. However, using the LDA approach, one can construct sequences of classifiers $C_n(x)$ that are asymptotically perfect, i.e.,
 $$\lim_{n\to \infty} \left(\frac{1}{2}\Pp_{\Pi_0}[C_n(x)=1] + \frac{1}{2}\Pp_{\Pi_1}[C_n(x)=0]\right)=0.$$
-Following \cite{Kraus2}, we will present three techniques for constructing such sequences based on the LDA classifier.	
+Following \cite{Kraus2}, we will present three techniques for constructing such sequences based on the LDA classifier.
 
+The first one is just to project the problem on the first few principal components of the data. More precisely, let $\{\lambda_i,\phi_i\}_{i=1}^\infty$ be a complete orthonormal system of eigenvectors of $Q$. Then, since $\mu_1-\mu_0 \notin Q^{1/2}(H)$, we must have 
+\begin{equation}\label{serinftylol}
+	\sum_{i=1}^{\infty} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle^2 }{\lambda_i} = \infty.
+\end{equation}
+The LDA direction $w = Q^{-1}(\mu_1-\mu_0)$ does not belong to $H$. However, one can `approximate' it in the subspace spanned by the first $m$ principal components $\{\phi_i\}_{i=1}^m$:
+$$w_m = \sum_{i=1}^{m} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle }{\lambda_i}\phi_i.$$
+By Equation \ref{probmisclass}, the misclassification probability of the linear centroid classifier with direction $w_m$ is given by $1-\Phi(\Upsilon_m)$ with 
+\begin{equation*}
+	\Upsilon_m =  \frac{\langle \mu_1 - \mu_0, w_m\rangle }{2\sqrt{\langle Qw_m,w_m\rangle}} = \frac{\langle \mu_1-\mu_0, w_m\rangle}{2\Vert Q^{1/2}w_m \Vert},
+\end{equation*}
+and 
+$$ Q^{1/2}w_m = \sum_{i=1}^\infty \sqrt{\lambda_i} \langle w_m,\phi_i\rangle \phi_i = \sum_{i=1}^{m} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle }{\sqrt{\lambda_i}}\phi_i, \ \Vert Q^{1/2}w_m \Vert^2 = \sum_{i=1}^{m} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle^2 }{\lambda_i} $$
+so that 
+$$\Upsilon_m = \frac{1}{2} \Vert Q^{1/2}w_m\Vert \stackrel{m \to \infty}{\longrightarrow} \infty \ \text{ (by Equation \ref{serinftylol}).}  $$ 
+Therefore, the misclassification probability of the linear centroid classifier with direction $w_m$  goes to 0 as $m$ goes to infinity. This sequence of classifiers is thus asymptotically perfect.
 
+The sequence of directions $w_m$ above is gotten by projecting the LDA direction on the subspaces $\mathrm{span}\{\phi_1,...,\phi_m\}$. We note that these subspaces do not depend on $\mu_0$ nor $\mu_1$. It should therefore be expected that there exist better sequences of subspaces on which one can project the LDA direction. One such sequence is the sequence of Krylov subspaces 
+$$K_m = \mathrm{span}\left\{\mu_1-\mu_0,...,Q^{m-1}(\mu_1-\mu_0)\right\}.$$
+Projecting an element on these subspaces yields the conjugate gradient algorithm presented in \cite[Algo.\! 1]{Kraus2}. These subspaces depend on $\mu_0$ and $\mu_1$ and the next proposition shows that they give better classifiers than the principal component subspaces. 
+\begin{prop}\cite[Prop.\! 2]{Kraus2}
+	For any $m$, projecting the LDA solution on $K_m$ gives a smaller misclassification probability than projecting it on the first $m$ principal components.
+\end{prop}
+In particular, it is asymptotically perfect.
 
+Finally, the third approach is to project the LDA direction on balls of finite radii. This is done by using the directions 
+$$w_\alpha = (Q + \alpha I)^{-1}(\mu_1-\mu_0) \ \text{ with } \alpha\to 0_+.$$  
+This last expression makes sense:
+$$\sum_{i=1}^{\infty} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle^2 }{(\lambda_i + \alpha)^2} = \frac{1}{\alpha^2} \sum_{i=1}^{\infty} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle^2 }{(\lambda_i/\alpha + 1)^2} \leq \frac{1}{\alpha^2} \sum_{i=1}^{\infty} \langle \mu_1 -\mu_0, \phi_i\rangle^2 = \frac{1}{\alpha^2}\Vert \mu_1-\mu_0 \Vert^2 < \infty.$$
+The  misclassification probability is given by $1-\Phi(\Upsilon_\alpha)$ with
+\begin{equation*}
+	\Upsilon_\alpha  =  \frac{\langle\mu_0-\mu_1,w_\alpha\rangle}{2\sqrt{\langle Qw_\alpha,w_\alpha\rangle}}.
+\end{equation*}
+Using 
+$$\sum_{i=1}^{\infty} \frac{\lambda_i \langle \mu_1 -\mu_0, \phi_i\rangle^2}{(\lambda_i + \alpha)^2} \leq \sum_{i=1}^{\infty} \frac{(\lambda_i+\alpha) \langle \mu_1 -\mu_0, \phi_i\rangle^2}{(\lambda_i + \alpha)^2} = \sum_{i=1}^{\infty} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle^2}{\lambda_i + \alpha},$$
+we get 
+$$\Upsilon_\alpha = \frac{\sum_{i=1}^{\infty} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle^2}{\lambda_i + \alpha}}{\left(\sum_{i=1}^{\infty} \frac{\lambda_i \langle \mu_1 -\mu_0, \phi_i\rangle^2}{(\lambda_i + \alpha)^2}\right)^{1/2}} \geq \left( \sum_{i=1}^{\infty} \frac{\langle \mu_1 -\mu_0, \phi_i\rangle^2}{\lambda_i + \alpha} \right)^{1/2} \stackrel{\alpha\to 0_+}{\longrightarrow} \infty \text{ by Equation \ref{serinftylol}.}$$
+Therefore, using $\alpha = 1/m$, we get a sequence of classifiers that is asymptotically perfect.
+
+All three methods presented above work in the same way. They project the LDA direction on various sequences of subsets of $H$: the principal component subspaces, the Krylov subspaces or balls of increasing radii. These give sensible approximation of the non-existing $Q^{-1}(\mu_1-\mu_0)$. However, when the latter does exist, it still makes sense to use these methods and see them as regularization techniques. As all three sequences converge to the range of $Q$, it is easy to prove that the induced sequences of direction $w_m$ converge to the LDA direction $Q^{-1}(\mu_1-\mu_0)$ when it exists.
+
+\subsection{QDA for infinite dimensional data}\label{qdainf}
+Consider now the classification framework where two populations $\Pi_0$ and $\Pi_1$ have means $\mu_0$ and $\mu_1$ and covariance operators $Q_0$ and $Q_1$. Then, we can adapt the QDA rule \ref{qdarule} in this setting. This cannot be done directly, since the determinant of an operator is not well-defined and since the inverses $Q_0^{-1},Q_1^{-1}$ do not exist in general. However, one can get around these issues by truncating these operations at order $m$. More precisely, let $\{\lambda_i,\phi_i\}_{i=1}^\infty$ and $\{\nu_i, \psi_i\}_{i=1}^\infty$ be complete orthonormal system of eigenvectors of $Q_0$ and $Q_1$ respectively. Then, one can use the following approximations 
+$$\log \vert Q_0\vert \rightsquigarrow \sum_{i=1}^{m} \log \lambda_i \ \ \text{ and } \ \ Q_0^{-1} \rightsquigarrow \sum_{i=1}^{m} \frac{1}{\lambda_i} \phi_i \otimes \phi_i,$$
+and similarly for $Q_1$. These yield the following QDA classifier: we classify an observation $x$ to population $\Pi_1$ if and only if
+$$2\log\left(\frac{p}{1-p}\right) < \sum_{i=1}^{m} \left[\log\left(\frac{\lambda_i}{\nu_i}\right) + \frac{\langle x-\mu_0,\phi_i\rangle^2 }{\lambda_i} - \frac{\langle x-\mu_1,\psi_i\rangle^2 }{\nu_i}\right].$$ 
+In \cite[Theorem 1]{DH1}, it is shown that under various conditions, this classifier is asymptotically perfect as $m$ goes to infinity. We are, however, still looking for a clean proof that this classifier is asymptotically perfect when the distributions of $\Pi_0$ and $\Pi_1$ are singular.
 
 \section{Classification of functional fragments}
-\subsection{Explain the work done by Kraus and Delaigle and Hall on the classification of functional fragments and my work}
+We now investigate the problem of classifying functional fragments. We use the same framework and notations as in Chapter \ref{chap:frags}. We will work in the following classification framework: we assume $H=\Ll^2[0,1]$, there are two populations $\Pi_0$ and $\Pi_1$ on $H$ and a probability distribution $\upsilon$ on the set of subintervals of $[0,1]$ that is independent of $\Pi_0$ and $\Pi_1$. Given a new observation $(X,[a,b])$, we want to decide whether $X$ comes from population $\Pi_0$ or $\Pi_1$.\\
+In that form, this framework is (intentionally) too vague. For example, here are some possibilities:
+\begin{enumerate}
+	\item We have full information on the distribution of $\Pi_0$ and $\Pi_1$ and need to classify fragments.
+	\item We observe fragments and need to classify fragments.
+	\item We observe fragments and need to classify full curves.
+	\item We observe full curves and need to classify fragments.
+\end{enumerate}
+To the best of our knowledge, only two papers have been written exclusively on that subject in the FDA literature, \cite{DH1} and \cite{Kraus2}. We will next present the methods given in these papers. We also note that in the case where the functions are observed only on a finite grid, which is always the case in practice, methods from machine learning, in particular the use of recurrent neural networks, have been developed to solve these classification tasks. 
+
+First, we describe a general approach to the classification of functional fragments. The ``training'' procedure yields information on the populations $\Pi_0$ and $\Pi_1$, typically in the form of estimates of the means $\hat{\mu}_0,\hat{\mu}_1$ and covariance kernels $\hat{K}_0,\hat{K}_1$ of $\Pi_0$ and $\Pi_1$. We can also assume homoscedasticity and have an estimate $\hat{K}$ of the common covariance kernel. It can also be, as in case 1. above, that the true values of these parameters are given. Then, given a new observation $(X,[a,b])$, we use the functional classification techniques, e.g. LDA and QDA, on this observation by restricting the problem to $[a,b]$. For example, we use LDA on $X\in \Ll^2[a,b]$ with parameters
+$$\hat{\mu}_0\!\mid_{[a,b]}, \ \hat{\mu}_1\!\mid_{[a,b]} \ \text{and} \ \hat{K}\!\mid_{[a,b]\times[a,b]}.$$
+This gives a general method for the classification of functional fragments. We will see next how one can estimate $\hat{\mu}_j$, $\hat{K}_j$ in clever ways to achieve better classification accuracy.
+
+In \cite{DH1}, the authors use their curve extension method, described in Section \ref{sec:curveext}, to get more information on the population $\Pi_0$ and $\Pi_1$ and to then achieve a better classification accuracy. More precisely, it is assumed that fragments 
+$$(X_{0,1},\Oo_{0,1}),...,(X_{0,n_0},\Oo_{0,n_0})\stackrel{i.i.d}{\sim} \Pi_0 \otimes \upsilon \ \text{ and } \ (X_{1,1},\Oo_{1,1}),...,(X_{1,n_1},\Oo_{1,n_1})\stackrel{i.i.d}{\sim} \Pi_1 \otimes \upsilon$$
+are observed. Then, a new observation $(X,[a,b])$ is classified in the following way: the observed fragments are all extended to $\tilde{X}_{j,i}$ on an interval
+$$\I \supset \bigcup_{i=1}^{n_0}\Oo_{0,i} \ \cup \ \bigcup_{i=1}^{n_1}\Oo_{1,i} \ \cup \ [a,b]$$
+using the gluing method. Weights $w_{j,i}$ quantifying how far the interval $\Oo_{j,k}$ is from the interval $\I$ are computed for $j=0,1$, $i=1,...,n_j$. The means and covariance kernels of both populations are are computed by
+$$\hat{\mu}_j(t) = \frac{1}{n_j} \sum_{i=1}^{n_j} w_{j,i}\tilde{X}_{j,i}(t) \ \text{ and } \ \hat{K}_j(s,t) = \frac{1}{n_j} \sum_{i=1}^{n_j} w_{j,i}\left[(\tilde{X}_{j,i}(s)-\hat{\mu}_j(s))(\tilde{X}_{j,i}(t)-\hat{\mu}_j(t))\right],$$
+for $j=0,1$, $s,t \in \I$. Finally, the curve $X$ on $\I$ is classified using the QDA method described in Section \ref{qdainf}. The LDA rule can also be used if all the observations are aggregated when estimating the covariance kernel. In \cite[Section 5.2]{DH1}, it is shown that under some conditions this classifier performs better than using QDA (or LDA) without curve extensions. 
+
+In \cite{Kraus2}, the framework is the same as above. Their approach to the classification of fragments is, however, more pragmatic. They consider the smallest common domain of all curves
+$$\I_0 = \bigcap_{i=1}^{n_0}\Oo_{0,i} \ \cap \ \bigcap_{i=1}^{n_1}\Oo_{1,i} \ \cap \ [a,b]$$
+and the largest subdomain $\I^{max}$ of $[a,b]$ where enough curves have been observed. They then consider a chain of domains
+$$\I_0 \subset \I_1 \subset ... \subset \I_K = \I^{max} \subseteq [a,b].$$
+For all such subdomains $\I_j$, the estimated means $\hat{\mu}_0^j,\hat{\mu}_1^j$ and common covariance $\hat{K}^j$ are computed using the naive estimators given in Section \ref{naiveest}. They then perform cross-validation on all the $\I_j$'s to estimate the misclassification rate on each using LDA with one of the regularization techniques presented in the last section. Finally, they classify the observation $(X,[a,b])$ on the subdomain having the lowest cross-validation misclassification rate. The idea behind this approach is that performing classification only on $\I_0$ might be too restrictive since a big fraction of the curves will be ignored. On the other hand, using $\I^{max}$ might be too optimistic since many curves may be unobserved on this domain and so the estimations of the means and covariance may be too biased. Thus, this algorithm looks for the right balance between these two extreme subdomains.\\
+We note that this approach is designed for when the fragments are observed in the ``blanket'' regime (see Section \ref{introfrag}). Indeed, in that regime the smallest common domain $\I_0$ is already quite large and so classification can be performed meaningfully on it. In the ``banded'' regime, $\I_0$ is typically small, even empty when $\delta<0.5$. 
+
+Finally, we present a novel approach based on the covariance recovery of \cite{DP2}. We use the same framework as above and assume further that we are in the ``banded'' regime, i.e., that all observations are of length $\delta \in (0,1)$. The naive estimates of the means $\hat{\mu}_0,\hat{\mu}_1$ and covariance kernels $\tilde{K}_0,\tilde{K}_1$ are computed. As before, we can also assume homoscedasticity and get an estimate $\tilde{K}$ of the common covariance kernel. Then, using the matrix completion method, we get estimates $\hat{K}_0,\hat{K}_1$ of rank $r_0,r_1$. Finally, a new observation $(X,[a,b])$ is classified using QDA with parameters 
+$$\hat{\mu}_0\!\mid_{[a,b]}, \ \hat{\mu}_1\!\mid_{[a,b]}, \  \hat{K}_0\!\mid_{[a,b]\times[a,b]} \ \text{and} \ \hat{K}_1\!\mid_{[a,b]\times[a,b]},$$
+or LDA with $\hat{K}\!\mid_{[a,b]\times[a,b]}$. In the case where $b-a\leq \delta$, this can be seen as a regularization technique on the covariance kernel estimation by intentionally reducing the rank of the naive estimates. In the case where $b-a>\delta$, the matrix completion method recovers new meaningful information on the kernels outside of the band $\{|s-t| \leq \delta\}$. This can be used to classify longer fragments with more accuracy.
+
+
 \section{A probabilistic approach to classification}
 \subsection{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}
 
