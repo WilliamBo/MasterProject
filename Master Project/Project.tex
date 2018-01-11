@@ -18,11 +18,13 @@
 \usepackage{mathtools}
 \usepackage[noend]{algpseudocode}
 \newcommand{\E}[0]{\mathbb{E}}
+\newcommand{\N}[0]{\mathbb{N}}
 \newcommand{\Ll}[0]{\mathbb{L}}
 \newcommand{\R}[0]{\mathbb{R}}
 \newcommand{\Pp}[0]{\mathbb{P}}
 \newcommand{\p}[0]{\mathfrak{p}}
 \newcommand{\I}[0]{\mathcal{I}}
+\newcommand{\K}[0]{\mathcal{K}}
 \newcommand{\F}[0]{\mathcal{F}}
 \newcommand{\Oo}[0]{\mathcal{O}}
 \newcommand{\vv}[0]{\mathbf{v}}
@@ -70,6 +72,107 @@
 
 \chapter{Introduction to Functional Data Analysis}
 \section{What are functional data?}
+We will use the term \textit{functional data} for any data living in some infinite dimensional space. This definition is intentionally vague and encompasses various types of data. By infinite dimensional space, we mean any model of space that does not satisfy some finiteness conditions. For example, infinite dimensional vector spaces or manifolds. Here are some concrete examples of such data and spaces:
+\begin{enumerate}
+	\item Functions $f:\R \to \R$ \ $\leadsto$ \ $\R^\R$. 
+	\item Square integrable measurable functions $f:[0,1] \to \R$ \ $\leadsto$ \ $\L^2[0,1]$.
+	\item Continuous closed curves in the plane $f: [0,1] \to \R^2$, $f(0)=f(1)$ \ $\leadsto$ \ $\mathcal{C}(\mathbb{S}^1, \R^2)$.
+	\item Amplitudes of square integrable measurable functions $f:[0,1] \to \R$ \ $\leadsto$ \ $\L^2[0,1]/\mathrm{Diffeo}([0,1])$, where $\L^2[0,1] \curvearrowleft \mathrm{Diffeo}([0,1])$ by $f \cdot \gamma = (f\circ \gamma)\sqrt{\frac{d\gamma}{dt}}$.
+\end{enumerate}
+These four examples show different type of spaces one can study. The first one is a vector space of uncountable dimension. With its standard topology it is not metrizable. The second is a separable Hilbert space with inner product $\langle f,g\rangle = \int_{0}^{1}f(t)g(t)dt$. The third is a separable Banach space with norm $\Vert f \Vert = \max_{z \in \mathbb{S}^1} \Vert f(z)\Vert_{\R^2}$. Finally, the last is a Hilbert manifold, i.e., a separable topological space locally homeomorphic to a Hilbert space.\\
+Evidently, some spaces are easier to work with than others. For instance, it is preferable to have a metric to measure the discrepancies between data points. Banach spaces and Hilbert manifold are metrizable, but functions from and to these spaces can be hard to analyze. The extensive theory of operator on Hilbert spaces make them good candidates for functional data analysis, and they are indeed the spaces of choice in most of the literature.\\
+In this project, we focus on the separable Hilbert spaces. It is well-known that all such spaces are isomorphic to the space $\ell^2(\R)$ of square summable sequences. However, we will mainly focus on the space $\L^2[0,1]$ as the most common type of functional data are functions depending on time. A famous example of such data is the growth data set from the Berkeley Growth Study, see \cite{growth}. It contains the heights of girls and boys from birth to their 18th year. Graphs of these heigths and their derivative for 5 girls and boys are shown in Figure \ref{fig:growth}.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Code/images/11/growth}
+		\caption{Height against age}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Code/images/11/dgrowth}
+		\caption{Derivative of height against age}
+	\end{subfigure}
+	\caption{}
+	\label{fig:growth}
+\end{figure}
+Questions one may ask on these data are: What are the mean and variance of these curves, and what do these notions mean? Can we classify a given curve as coming from a boy or a girl? How do we deal with the fact that individuals don't have the same ``biological clock''?\\
+Functional data analysis deals with this kind of questions. In the next section, we will expose the theory needed to answer the first one.
+
+\section{Stochastic processes on $[0,1]$}
+We want to study random functions in $\L^2[0,1]$. There are two possible definitions:
+\begin{itemize}
+	\item A random function in $L^2[0,1]$ is a random element in $(L^2[0,1],\mathcal{B}(\L^2[0,1]))$, i.e., a measurable map $$X:(\Omega,\mathcal{F},\Pp) \to (L^2[0,1],\mathcal{B}(\L^2[0,1]))$$
+	for some probability space $(\Omega,\mathcal{F},\Pp)$.
+	\item A random function in $L^2[0,1]$ is a stochastic process on $[0,1]$, i.e., a collection $\{X(t) \mid t\in [0,1] \}$ of random variables defined on a common probability space $(\Omega,\mathcal{F},\Pp)$, such that 
+	$$\int_{0}^{1} X^2(t,\omega) dt < \infty \text{ for almost all } \omega.$$ 
+\end{itemize}
+The first definition is more abstract and somewhat more elegant. However, it is not so practical since, for example, the evaluation at a point is not well-defined in $L^2[0,1]$. On the other hand, it can readily be generalized to other separable Hilbert spaces, or other function spaces. We will use this definition in Chapter \ref{chap:gauss} to develop the theory of infinite dimensional Gaussian random variables.\\
+The second one is closer to what is observed in practice. Moreover, if $X(t,\omega)$ is measurable on the product $\sigma-$algebra $\mathcal{B}([0,1]) \otimes \F$, one can show (see \cite[Theorem 7.4.1]{found}) that 
+$$X: \Omega \to L^2[0,1]: \omega \mapsto X(\cdot,\omega)$$
+is measurable, and thus is a random function with respect to the first definition.\\
+We will use the second definition in our exposition, following that of \cite{found}.\\
+One can readily define the mean of a process $X$ as the pointwise mean:
+$$\mu(t) = \E[X(t)], \ t \in [0,1].$$
+The information on the (co)variance of $X$ is stored in the covariance kernel, a function $K:[0,1]^2 \to \R$ defined by 
+$$K(s,t) = \mathrm{Cov}[X(s),X(t)].$$
+When $\mu$ and $K$ are well-defined, we call $X$ a second-order process. In multivariate analysis, the covariance matrix of a random vector is always positive semidefinite. For second-order processes, we have the following analogous result:
+\begin{prop}
+	The covariance kernel $K$ of a second-order process is symmetric and positive semidefinite, that is 
+	$$\sum_{i=1}^{n}\sum_{j=1}^{n}c_i c_j K(t_i,t_j) \geq 0$$
+	holds for any $n\in \N,t \in [0,1]^n, c\in \R^n$.
+	\begin{proof}
+		The symmetry of $K$ is a direct consequence of the symmetry of the covariance. For the positive semidefiniteness, we have
+		$$\sum_{i=1}^{n}\sum_{j=1}^{n}c_i c_j K(t_i,t_j) = \sum_{i=1}^{n}\sum_{j=1}^{n}c_i c_j \mathrm{Cov}[X(t_i),X(t_j)] = \mathrm{Var}\left[\sum_{i=1}^{n}c_iX(t_i)\right]\geq  0.$$
+	\end{proof}
+\end{prop} 
+We now assume that $X$ is mean-squared continuous, that is 
+$$\lim_{s\to t} \E[X(s)-X(t)]^2 = 0$$
+for all $s,t \in [0,1]$. Intuitively, this is equivalent to saying that the mean of $X$ and its variation vary continuously. This is made formal by the following theorem, proved in \cite[Theorem 7.2.4]{found}.
+\begin{theorem}
+	The process $X$ is mean-squared continuous if and only if the mean $\mu$ and covariance kernel $K$ of $X$ are continuous.
+\end{theorem}
+This can be used to show that $\E\Vert X \Vert^2 < \infty$, or equivalently that $K \in \Ll^2([0,1]^2)$. Then, one can define the covariance operator
+$$\K:\Ll^2[0,1] \to \Ll^2[0,1]: f \mapsto \K f(t) = \int_{0}^{1}K(s,t)f(s)ds.$$
+This can be seen as a generalization of the covariance matrix, seen as a linear operator, in the multivariate setting. The covariance operator has the following properties:
+\begin{theorem}
+	\begin{itemize}
+		\item[]
+		\item[1.] $\K$ is well-defined, i.e., $\K f \in \Ll^2[0,1]$ for all $f\in \Ll^2[0,1]$.
+		\item[2.] $\K$ is self-adjoint.
+		\item[3.] $\K$ is positive semidefinite.
+		\item[4.] $\K$ is trace class with $\mathrm{Tr}(\K)=\int_{0}^{1}K(t,t)dt$.
+		\item[5.] $\K$ is Hilbert-Schmidt with $\Vert \K \Vert_{HS} = \Vert K \Vert_{\Ll^2}$.
+	\end{itemize}
+	\begin{proof}
+		Since the definition of $K$ and thus that of $\K$ do not depend on $\mu$, we assume $\mu \equiv 0$.
+		\begin{itemize}
+			\item[1.] For all $f \in \Ll^2[0,1]$, 
+			$$\int_{0}^{1}(\K f)^2(t)dt = \int_{0}^{1}\left(\int_{0}^{1}K(s,t)f(s)ds\right)^2dt \leq \iint K^2(s,t)dsdt \cdot \int_{0}^1 f^2(t)dt < \infty.$$
+			Moreover, this shows that the operator norm of $\K$ is at most that of $K$ in $\Ll^2([0,1]^2)$.
+			\item[2.] For any $f,g \in \Ll^2[0,1]$, 
+			$$\langle \K f,g \rangle = \iint K(s,t)f(s)g(t)dsdt = \iint K(t,s)g(t)f(s)dtds = \langle f,\K g \rangle,$$
+			where we have used the symmetry of $K$.
+			\item[3.] For $n\in \N$, using the compactness of $[0,1]^2$ and the continuity of $K$, one can find a finite sequence 
+			$$\{0\leq x_1 <  x_2< ...< x_r \leq 1\} \subset [0,1]$$
+			such that 
+			$$\vert K(s,t) - K(x_i,x_j)\vert \leq \frac{1}{n} \ \text{ if } \ x_i\leq s<x_{i+1}, \ x_j\leq t<x_{j+1}.$$
+			Let $K_n$ denote the induced piecewise constant kernel. Then, $$\Vert K-K_n \Vert_{\Ll^2}\leq \frac{1}{n}$$, and so, using the bound for the operator norm found above, we get 
+			$$\vert \langle \K f,f \rangle - \langle \K_n f,f \rangle\vert \leq \frac{1}{n}\Vert f\Vert^2.$$
+			Finally, we use the positive semidefiniteness of $K$ to get
+			$$\langle \K_n f,f \rangle = \sum_{i=1}^{r}\sum_{j=1}^{r} K(x_i,x_j) \int_{x_i}^{x_{i+1}}\! f \int_{x_j}^{x_{j+1}}\!f \geq 0,$$
+			and so $\langle \K f,f \rangle\geq 0$.
+			\item[3.] Let $\{\phi_i\}$ be a complete orthonormal system of $\Ll^2[0,1]$. Then
+			$$\langle \K \phi_i,\phi_i \rangle = \iint \E[X(s)X(t)]\phi_i(s)\phi_i(t)dsdt = \E\left[\iint X(s)\phi_i(s)X(t)\phi_i(t)dsdt\right] = \E[\langle X,\phi_i\rangle^2].$$
+			Thus, 
+			$$\mathrm{Tr}(\K) = \sum_{i=1}^{\infty} \langle \K \phi_i,\phi_i\rangle = \sum_{i=1}^{\infty} \E[\langle X,\phi_i\rangle^2] = \E\left[\sum_{i=1}^{\infty} \langle X,\phi_i\rangle^2\right] = \E\Vert X \Vert^2 = \int_{0}^{1}K(t,t)dt.$$
+			\item[4.] 
+		\end{itemize}
+	\end{proof}
+\end{theorem}
+
+
 \subsection{Explain the structure of functional data, the spaces they live in, expectation, covariance, observable discretized versions. }
 \section{Statistical analysis of functional data}
 \subsection{Explain the basic principles of estimation of mean and covariance with convergence rates, etc.. Also mention smoothing methods. }
@@ -329,7 +432,7 @@ From this plot, we decide to choose the rank of the estimator to be $i=5$. The r
 The relative error with this estimate is $\Vert R^K - \hat{R}_n^K\Vert / \Vert R^K \Vert = 21.3\%$. By using the matrix completion method, we have thus achieved a gain of 28\% in relative error compared to the naive estimator $\tilde{R}_n^K$ described in Section \ref{naiveest}.
 
 
-\chapter{Gaussian measures in Hilbert space}
+\chapter{Gaussian measures in Hilbert space}\label{chap:gauss}
 \section{Gaussian measures in finite dimensions}
 Before exploring the construction and properties of infinite dimensional Gaussian measures, we start by going through the basic definitions and properties of finite dimensional Gaussian measures in ways that are easily generalizable to the infinite dimensional case.\\
 We start with one-dimensional Hilbert spaces, i.e., the real line.

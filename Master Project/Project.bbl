@@ -38,7 +38,6 @@ Delaigle, A. and Hall, P. (2016).
 \newblock Approximating fragmented functional data by segments of markov
   chains.
 \newblock {\em Biometrika}, 103(4):779--799.
-  
 
 \bibitem[Descary and Panaretos, 2016]{DP1}
 Descary, M.-H. and Panaretos, V.~M. (2016).
@@ -60,6 +59,12 @@ Ferraty, F. and Romain, Y. (2010).
 \newblock {\em The Oxford Handbook of Functional Data Analysis}.
 \newblock Oxford Handbooks in Mathematics. OUP Oxford.
 
+\bibitem[Hsing and Eubank, 2015]{found}
+Hsing, T. and Eubank, R. (2015).
+\newblock {\em Theoretical Foundations of Functional Data Analysis, with an
+  Introduction to Linear Operators}.
+\newblock Wiley Series in Probability and Statistics. Wiley.
+
 \bibitem[Krantz and Parks, 2002]{analprimer}
 Krantz, S. and Parks, H. (2002).
 \newblock {\em A Primer of Real Analytic Functions}.
@@ -76,5 +81,11 @@ Kraus, D. and Stefanucci, M. (2017).
 \newblock Classification of functional fragments by regularized linear
   classifiers with domain selection.
 \newblock arXiv:1708.08257.
+
+\bibitem[Tuddenham and Snyder, 1954]{growth}
+Tuddenham, R.~D. and Snyder, M.~M. (1954).
+\newblock Physical growth of california boys and girls from birth to eighteen
+  years.
+\newblock {\em University of California Publications in Child Development}.
 
 \end{thebibliography}
