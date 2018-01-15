@@ -59,6 +59,11 @@ Ferraty, F. and Romain, Y. (2010).
 \newblock {\em The Oxford Handbook of Functional Data Analysis}.
 \newblock Oxford Handbooks in Mathematics. OUP Oxford.
 
+\bibitem[Horv{\'a}th and Kokoszka, 2012]{inference}
+Horv{\'a}th, L. and Kokoszka, P. (2012).
+\newblock {\em Inference for Functional Data with Applications}.
+\newblock Springer Series in Statistics. Springer New York.
+
 \bibitem[Hsing and Eubank, 2015]{found}
 Hsing, T. and Eubank, R. (2015).
 \newblock {\em Theoretical Foundations of Functional Data Analysis, with an
@@ -82,10 +87,26 @@ Kraus, D. and Stefanucci, M. (2017).
   classifiers with domain selection.
 \newblock arXiv:1708.08257.
 
+\bibitem[Ramsay and Silverman, 2005]{fdaram}
+Ramsay, J. and Silverman, B. (2005).
+\newblock {\em Functional Data Analysis}.
+\newblock Springer Series in Statistics. Springer.
+
+\bibitem[Ramsay and Silverman, 2013]{apfda}
+Ramsay, J. and Silverman, B. (2013).
+\newblock {\em Applied Functional Data Analysis: Methods and Case Studies}.
+\newblock Springer Series in Statistics. Springer New York.
+
 \bibitem[Tuddenham and Snyder, 1954]{growth}
 Tuddenham, R.~D. and Snyder, M.~M. (1954).
 \newblock Physical growth of california boys and girls from birth to eighteen
   years.
 \newblock {\em University of California Publications in Child Development}.
+
+\bibitem[Yao et~al., 2005]{pace}
+Yao, F., Müller, H.-G., and Wang, J.-L. (2005).
+\newblock Functional data analysis for sparse longitudinal data.
+\newblock {\em Journal of the American Statistical Association},
+  100(470):577--590, https://doi.org/10.1198/016214504000001745.
 
 \end{thebibliography}

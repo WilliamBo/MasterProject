@@ -112,7 +112,7 @@ The first definition is more abstract and somewhat more elegant. However, it is 
 The second one is closer to what is observed in practice. Moreover, if $X(t,\omega)$ is measurable on the product $\sigma-$algebra $\mathcal{B}([0,1]) \otimes \F$, one can show (see \cite[Theorem 7.4.1]{found}) that 
 $$X: \Omega \to L^2[0,1]: \omega \mapsto X(\cdot,\omega)$$
 is measurable, and thus is a random function with respect to the first definition.\\
-We will use the second definition in our exposition, following that of \cite{found}.\\
+We will use the second definition in our exposition, assuming when needed that $X$ is also a random element of $\Ll^2[0,1]$ to avoid unnecessary technicalities. Most of the result given here can be found in \cite{found}.\\
 One can readily define the mean of a process $X$ as the pointwise mean:
 $$\mu(t) = \E[X(t)], \ t \in [0,1].$$
 The information on the (co)variance of $X$ is stored in the covariance kernel, a function $K:[0,1]^2 \to \R$ defined by 
@@ -136,14 +136,14 @@ for all $s,t \in [0,1]$. Intuitively, this is equivalent to saying that the mean
 This can be used to show that $\E\Vert X \Vert^2 < \infty$, or equivalently that $K \in \Ll^2([0,1]^2)$. Then, one can define the covariance operator
 $$\K:\Ll^2[0,1] \to \Ll^2[0,1]: f \mapsto \K f(t) = \int_{0}^{1}K(s,t)f(s)ds.$$
 This can be seen as a generalization of the covariance matrix, seen as a linear operator, in the multivariate setting. The covariance operator has the following properties:
-\begin{theorem}
+\begin{theorem}\label{propcovop}
 	\begin{itemize}
 		\item[]
 		\item[1.] $\K$ is well-defined, i.e., $\K f \in \Ll^2[0,1]$ for all $f\in \Ll^2[0,1]$.
 		\item[2.] $\K$ is self-adjoint.
 		\item[3.] $\K$ is positive semidefinite.
 		\item[4.] $\K$ is trace class with $\mathrm{Tr}(\K)=\int_{0}^{1}K(t,t)dt$.
-		\item[5.] $\K$ is Hilbert-Schmidt with $\Vert \K \Vert_{HS} = \Vert K \Vert_{\Ll^2}$.
+		\item[5.] $\K$ is Hilbert-Schmidt with norm $\Vert \K \Vert_{HS} = \Vert K \Vert_{\Ll^2}$.
 	\end{itemize}
 	\begin{proof}
 		Since the definition of $K$ and thus that of $\K$ do not depend on $\mu$, we assume $\mu \equiv 0$.
@@ -163,20 +163,235 @@ This can be seen as a generalization of the covariance matrix, seen as a linear 
 			Finally, we use the positive semidefiniteness of $K$ to get
 			$$\langle \K_n f,f \rangle = \sum_{i=1}^{r}\sum_{j=1}^{r} K(x_i,x_j) \int_{x_i}^{x_{i+1}}\! f \int_{x_j}^{x_{j+1}}\!f \geq 0,$$
 			and so $\langle \K f,f \rangle\geq 0$.
-			\item[3.] Let $\{\phi_i\}$ be a complete orthonormal system of $\Ll^2[0,1]$. Then
+			\item[4.] Let $\{\phi_i\}$ be a complete orthonormal system of $\Ll^2[0,1]$. Then
 			$$\langle \K \phi_i,\phi_i \rangle = \iint \E[X(s)X(t)]\phi_i(s)\phi_i(t)dsdt = \E\left[\iint X(s)\phi_i(s)X(t)\phi_i(t)dsdt\right] = \E[\langle X,\phi_i\rangle^2].$$
 			Thus, 
 			$$\mathrm{Tr}(\K) = \sum_{i=1}^{\infty} \langle \K \phi_i,\phi_i\rangle = \sum_{i=1}^{\infty} \E[\langle X,\phi_i\rangle^2] = \E\left[\sum_{i=1}^{\infty} \langle X,\phi_i\rangle^2\right] = \E\Vert X \Vert^2 = \int_{0}^{1}K(t,t)dt.$$
-			\item[4.] 
+			\item[5.] For any $s\in [0,1]$, the slice function $K_s(t)=K(s,t)$ is in $\Ll^2[0,1]$. Let $\{\phi_i\}$ be a complete orthonormal system of $\Ll^2[0,1]$. Then, 
+			$$\K \phi_i(s) = \int_{0}^1 K(s,t)\phi_i(t)dxdy = \int_{0}^{1}K_s(t)\phi_i(t)dxdy = \langle K_s,\phi_i \rangle.$$
+			Thus, 
+			\begin{eqnarray*}
+				\Vert \K \Vert^2_{HS} & = & \sum_{i=1}^{\infty} \Vert \K \phi_i \Vert^2 = \sum_{i=1}^{\infty} \int_{0}^{1} \langle K_s,\phi_i \rangle^2 ds \\
+				& = & \int_{0}^{1} \sum_{i=1}^{\infty} \langle K_s,\phi_i \rangle^2 ds = \int_{0}^{1} \Vert K_s \Vert^2 ds \\
+				& = & \int_{0}^{1} \int_{0}^{1} K^2(s,t) dtds = \Vert K \Vert_{\Ll^2}. 
+			\end{eqnarray*}
 		\end{itemize}
 	\end{proof}
 \end{theorem}
+An essential result in the study of positive kernels is Mercer's theorem, which relates the kernel $K$ to the spectrum of $\K$.
+\begin{theorem}[Mercer]
+	Let $K$ be a continuous symmetric positive semidefinite kernel and let $\K$ be its associated operator on $\Ll^2[0,1]$. By the previous theorem, $\K$ is a compact self-adjoint operator and thus admits a complete orthonormal system of eigenfunctions $\{\lambda_i,\phi_i\}$. Then, 
+	$$K(s,t) = \sum_{i=1}^{\infty} \lambda_i \phi_i(s)\phi_i(t),$$
+	where the convergence is absolute and uniform.
+\end{theorem}
+We are now ready to prove the most important result in functional data analysis, the Karhunen–Loève theorem.
+\begin{theorem}[Karhunen–Loève]
+	Let $X$ be a second-order mean-squared continuous process with mean $\mu$ and covariance kernel $K$. Let $\{\lambda_i,\phi_i\}$ be the complete orthonormal basis given by Mercer's theorem. Then, the random variables
+	$$\xi_i = \langle X-\mu, \phi_i\rangle$$
+	have mean 0 and are uncorrelated with 
+	$$\E[\xi_i\xi_j]=\lambda_i \delta_{ij}.$$
+	Moreover, the sequence of processes 
+	$$X_n(t) = \mu(t) + \sum_{i=1}^{n} \xi_i \phi_i(t)$$
+	converges uniformly to $X(t)$, that is 
+	$$\sup_{t\in [0,1]} \E\left[X(t)-X_n(t)\right]^2 \  \stackrel{n\to \infty}{\longrightarrow} \ 0.$$
+	\begin{proof}
+		By replacing $X$ and $X_n$ with $X-\mu$ and $X_n-\mu$ in the statement of the theorem, we can assume without loss of generality that $\mu \equiv 0$.We have 
+		$$\E[\xi_i\xi_j]= \E[\langle X-\mu, \phi_i\rangle\langle X-\mu, \phi_j\rangle] = \langle \K \phi_i, \phi_j\rangle = \lambda_i \delta_{ij},$$
+		so that the $\xi_i$'s are uncorrelated with variance $\lambda_i$. For any $t$ in $[0,1]$, we have 
+		\begin{eqnarray*}
+			\E\left[X(t)-X_n(t)\right]^2 & = & \E\left[X(t)\right]^2 - 2\E\left[X(t)X_n(t)\right] + \E\left[X_n(t)\right]^2 \\
+			& = & K(t,t)- 2\sum_{i=1}^{n}\phi_i(t)\E[\xi_i X(t)] + \sum_{i=1}^{n} \mathrm{Var}[\xi_i \phi_i(t)]\\
+			& = & K(t,t) - 2\sum_{i=1}^{n}\phi_i(t) \E\left[X(t)\int X(s)\phi_i(s)ds\right] + \sum_{i=1}^{n}\lambda_i \phi_i^2(t) \\
+			& = & K(t,t) - 2\sum_{i=1}^{n}\lambda_i\phi_i^2(t)  + \sum_{i=1}^{n}\lambda_i \phi_i^2(t)\\
+			& = & K(t,t) - \sum_{i=1}^{n}\lambda_i\phi_i^2(t).\\
+		\end{eqnarray*}
+		The last term tends uniformly to 0 by Mercer's theorem. 
+	\end{proof}
+\end{theorem}
+This theorem gives a stochastic analogue of the fact that $\Ll^2[0,1]$ is isomorphic to $\ell^2(\R)$. More precisely, it states that the variation of $X$ around its mean can be expressed in terms of the countable sequence of random variables $\{\xi_i\}$ and the eigenfunctions $\{\phi_i\}$. We now give a concrete example of this theorem in the case of a standard Wiener process (following \cite[Example 4.6.3]{found}).
+\begin{ex}
+	Let $W$ be a standard Wiener process on $[0,1]$. It is well-known that its covariance kernel is given by 
+	$$K(s,t) = \min(s,t).$$
+	Thus, its covariance operator is given by 
+	$$\K f(t) = \int_{0}^1 \min(s,t)f(s)ds = \int_{0}^{t}sf(s)ds + t\int_{t}^1f(s)ds.$$
+	To find the eigenpairs of $\K$, we solve $\K\phi = \lambda\phi$ for $\lambda$ and $\phi$:
+	\begin{equation}\label{eq:wien1}
+		\int_{0}^{t}s\phi(s)ds + t\int_{t}^1\phi(s)ds = \lambda\phi(t), \ \forall t \in [0,1].
+	\end{equation}
+	Differentiating with respect to $t$ yields
+	\begin{equation}\label{eq:wien2}
+		t\phi(t) + \int_{t}^{1}\phi(s)ds - t\phi(t) = \int_{t}^{1}\phi(s)ds = \lambda\phi'(t).	
+	\end{equation}
+	Differentiating again yields $\phi(t) = -\lambda\phi''(t)$. The general solution of this differential equation is given by
+	$$\phi(t) = a\sin\left(\frac{t}{\sqrt{\lambda}}\right) + b\cos\left(\frac{t}{\sqrt{\lambda}}\right).$$
+	Equation \ref{eq:wien1} implies that $\phi(0)=0$, so that $b=0$. Then, Equation \ref{eq:wien2} gives $\phi'(1)=0$, so that $a\cos(1/\sqrt{\lambda})=0$. This implies
+	$$\frac{1}{\sqrt{\lambda}} \in \left\{\frac{(2i-1)\pi}{2} \ \mid \ j=1,2,... \right\}.$$
+	Finally, combining all of this gives the following orthonormal system of eigenpairs, shown in Figure \ref{fig:eigpairwien}. 
+	$$\lambda_i = \frac{4}{((2i-1)\pi)^2}, \ \phi_i(t) = \sqrt{2}\sin\left(\frac{(2i-1)\pi}{2} t\right).$$
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=.9\linewidth]{Code/images/12/eigvals}
+			\caption{Logarithm of the first 100 eigenvalues of $\K$.}
+		\end{subfigure}%
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=.9\linewidth]{Code/images/12/eigfs}
+			\caption{First 7 eigenfunctions of $\K$.}
+		\end{subfigure}
+		\caption{}
+		\label{fig:eigpairwien}
+	\end{figure}
+	Since $W$ is a Gaussian process, the random variables $xi_i = \langle W,\phi_i\rangle$ are Gaussian in the Karhunen–Loève theorem. Therefore, we can explicitly generate the finite sum approximations $W_n$. An example is shown in Figure \ref{fig:wienerapprox}.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.4\textwidth]{Code/images/12/approx6}\quad
+		\includegraphics[width=.4\textwidth]{Code/images/12/approx11}
+		
+		\medskip
+		
+		
+		\includegraphics[width=.4\textwidth]{Code/images/12/approx21}
+		\includegraphics[width=.4\textwidth]{Code/images/12/approx51}
+		
+		\medskip
+		
+		\includegraphics[width=.4\textwidth]{Code/images/12/approx101}\quad
+		\includegraphics[width=.4\textwidth]{Code/images/12/approx501} \quad
+		
+		\caption{Finite sum approximations $W_n$ of $W$ for $n=5,10,20,50,100,500$.}
+		\label{fig:wienerapprox}
+	\end{figure}
+\end{ex}
+Two of the most important theorems in classical statistics are the strong law of large numbers and the central limit theorem. Fortunately, these two results still hold in the functional setting. We state them here without proof, which can be found in \cite[Theorem 7.7.2 and 7.7.6]{found}.
+\begin{theorem}[Strong law of large numbers] 
+		Let $\{X_i\}_{i=1}^\infty$ be a sequence of i.i.d stochastic processes with $\E\Vert X_1 \Vert_{\Ll^2}<\infty$ and $\E[X_1]=\mu$. Let $S_n=X_1 +...+X_n$ be the sequence of partial sums. Then,
+		$$\frac{S_n}{n} \ \stackrel{a.s.}{\longrightarrow} \ \mu.$$  
+\end{theorem}
+\begin{theorem}[Central limit theorem]
+	Let $\{X_i\}_{i=1}^\infty$ be a sequence of i.i.d stochastic processes with $\E\Vert X_1 \Vert^2_{\Ll^2}<\infty$, $\E[X_1]=\mu$ and covariance operator $\K$. Then,
+	$$\frac{1}{\sqrt{n}}\sum_{i=1}^{n}(X_i-\mu) \ \stackrel{dist}{\longrightarrow} \ N_{0,\K},$$
+	where $N_{0,\K}$ denotes a Gaussian measure om $\Ll^2[0,1]$, meaning that for any $f\in \Ll^2[0,1]$,
+	$$\left\langle f, \frac{1}{\sqrt{n}}\sum_{i=1}^{n}(X_i-\mu)\right\rangle \ \stackrel{dist}{\longrightarrow} \ N_{0,\langle\K f,f\rangle},$$
+	see Chapter \ref{chap:gauss}.
+\end{theorem}
 
-
-\subsection{Explain the structure of functional data, the spaces they live in, expectation, covariance, observable discretized versions. }
 \section{Statistical analysis of functional data}
-\subsection{Explain the basic principles of estimation of mean and covariance with convergence rates, etc.. Also mention smoothing methods. }
+We now take on the task of estimating some parameters of a process from observing a finite sample. Our exposition follows that of \cite{inference}. Our setup will be as follows. We observe $N$ i.i.d. samples $X_1,...,X_N$ coming from a second-order mean-squared continuous process. In this section, we will see how to estimate the mean, covariance kernel and eigenpairs of the covariance operator of this process.\\
+We start with the mean $\mu = \E[X_1]$. As in the finite dimensional setting, we estimate it using the sample mean 
+$$\hat{\mu}(t) = \frac{1}{N}\sum_{i=1}^{N} X_i(t).$$
+The next theorem shows that $\hat{\mu}$ is a unbiased $\Ll^2$-consistent estimator.
+\begin{theorem}\label{consmu}
+	The process $\hat{\mu}$ satisfies $\E[\hat{\mu}]=\mu$ and 
+	$$\E\Vert \hat{\mu}-\mu \Vert^2 = O\left(\frac{1}{N}\right).$$
+	Moreover, 
+	$$\sqrt{n}(\hat{\mu}-\mu) \stackrel{dist}{\longrightarrow} \ N_{0,\K}.$$ 
+	\begin{proof}
+		For any $t\in [0,1]$, 
+		$$\E[\hat{mu}(t)]=\frac{1}{N}\sum_{i=1}^{N}\E[X_i(t)]=\mu(t),$$
+		whence $\E[\hat{\mu}]=\mu$. 
+		We note that $\hat{\mu}-\mu = N^{-1}\sum_{i=1}^{N}(X_i-\mu)$, so that 
+		$$\E\Vert \hat{\mu}-\mu \Vert^2 = \frac{1}{N^2}\sum_{i,j=1}^{N}\E\left[\langle X_i-\mu,X_j-\mu \rangle \right]=\frac{1}{N^2}\sum_{i=1}^{N}\E\left[\langle X_i-\mu,X_i-\mu \rangle \right] = \frac{1}{N} \E\Vert X_1-\mu \Vert^2 = O\left(\frac{1}{N}\right),$$
+		where we used that $X_i$ and $X_j$ are independent for $i\ne j$, so that 
+		$$\E\left[\langle X_i-\mu,X_j-\mu \rangle \right] = 0.$$
+		The last statement follows immediately from the central limit theorem.
+	\end{proof}
+\end{theorem}
+The estimation of the covariance kernel is also performed similarly to the finite dimensional setting. We estimate it with 
+$$\hat{K}(s,t) = \frac{1}{N}\sum_{i=1}^{N}(X_i(s)-\hat{\mu}(s))(X_i(t)-\hat{\mu}(t)).$$
+As in the finite dimensional case, this estimator is biased with 
+$$\E[\hat{K}(s,t)] = \frac{N-1}{N}K(s,t),$$
+which is negligible when $N$ is large. We estimate the covariance operator by the induced operator of $\hat{K}$, i.e., with
+$$\hat{\K} f(t) = \int_{0}^{1} \hat{K}(s,t)f(s)ds = \frac{1}{N}\sum_{i=1}^{N}(X_i(t)-\hat{\mu}(t))\langle X_i-\hat{\mu}, f \rangle.$$
+This last expression shows that the range of $\hat{\K}$ is contained in the span of $\{X_1,...,X_N\}$ and is thus finite dimensional. This is the source of many problems in functional data analysis, since the true covariance operator is often infinite dimensional.\\
+To analyze this estimator, we need to choose an operator space in which we can work. As was shown in Theorem \ref{propcovop}, the true covariance operator $\K$ lives in the spaces of bounded, Hilbert-Schmidt and trace class operators. We note that $\hat{\K}$ also belongs to these spaces since it has finite dimensional range. Of those, the space of Hilbert-Schmidt operators $\mathcal{S}(\Ll^2[0,1])$ is the most convenient since it is itself a separable Hilbert space which makes the computations easier. To make them even easier, we assume that $\mu \equiv \hat{\mu} \equiv 0$. This assumption is not too optimistic in practice since $\hat{\mu}$ converges quite rapidly to $\mu$. The next theorem shows that $\hat{\K}$ has good properties.
+\begin{theorem}
+	If $\E\Vert X_1\Vert^4 < \infty$, the estimator $\hat{\K}$ satisfies:
+	\begin{enumerate}
+		\item $\hat{\K} \ \stackrel{a.s.}{\longrightarrow} \ \K$,
+		\item $\E\Vert \hat{\K}-\K \Vert^2_{HS} \leq \frac{1}{N}\E\Vert X_1\Vert^4$,
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}
+			\item As noted above, $\hat{K}$ can be written as $N^{-1}\sum_{i=1}^{N}X_i\langle X_i,\cdot \rangle$. Consider the operators 
+			$$\K_i = X_i\langle X_i,\cdot \rangle - \K, \ i=1,...,N.$$
+			Then, $\hat{\K} -\K = N^{-1}\sum_{i=1}^{N}\K_i$ and $\E[\K_i]=0$ for $i=1,...,N$. Therefore, by the strong law of large numbers,
+			$$\hat{\K}-\K \stackrel{a.s}{\longrightarrow} 0 \ \iff \ \hat{\K} \stackrel{a.s}{\longrightarrow} \K.$$
+			\item Let $\{\phi_k\}$ is a complete orthonormal system of $\Ll^2[0,1]$,
+			$$\Vert X_i\langle X_i,\cdot \rangle\Vert_{HS}^2 = \sum_{k=1}^{\infty}\Vert X_i\langle X_i,\phi_k\rangle \Vert^2 = \Vert X_i \Vert^2 \sum_{k=1}^{\infty}\langle X_i,\phi_k\rangle^2 = \Vert X_i \Vert^4.$$
+			Then, by similar computations as those carried out in the proof of Theorem \ref{consmu}, one can show that (see \cite[Theorem 2.5]{inference})
+			$$\E\Vert \hat{\K}-\K \Vert^2_{HS} = \E\left\langle \frac{1}{N}\sum_{i=1}^{N} \K_i,\frac{1}{N}\sum_{i=1}^{N} \K_i \right\rangle_{HS} \leq \E\Vert X_1\Vert^4.$$
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+One of the most popular tool in functional data analysis is the functional principal component analysis (FPCA) method. This method uses the Karhunen-Loève theorem to reduce the dimension of the data to infinite to finite. Similarly to the PCA method in multivariate analysis, we approximate the process $X$ using only the $r$ principal components (we still assume $\E[X]\equiv 0$):
+$$X \simeq X^r = \sum_{i=1}^{r}\xi_i \phi_i.$$
+The process $X^r$ has covariance operator $\K^r = \sum_{i=1}^{r}\lambda_i \phi_i \otimes \phi_i$ and therefore ``explain'' a ratio of 
+$$\frac{\mathrm{Tr}(\K^r)}{\mathrm{Tr}(\K)} = \frac{\sum_{i=1}^{r}\lambda_i}{\sum_{i=1}^{\infty}\lambda_i}$$
+of the variance of $X$.\\
+In practice, one does not have access to the eigenpairs $\{\lambda_i,\phi_i\}_{i=1}^r$ of $\K$ and we thus need a way to approximate them. The obvious way to do so is by using the eigenpairs $\{\hat{\lambda}_i,\hat{\phi}_i\}_{i=1}^r$ of $\K$. We assume that $\lambda_1>...>\lambda_r>0$ to make the problem identifiable. Moreover, we assume that we can the estimates $\hat{\phi_i}$ have good signs, i.e., that $\langle \phi_i,\hat{\phi_i}\rangle\geq 0$ for all $i$. In practice, one is only interested in the eigenspaces, so this last assumption is not to restrictive.\\
+Then, the next theorem, proved in \cite[Section 2.7]{inference}, shows that $\{\hat{\lambda}_i,\hat{\phi}_i\}_{i=1}^r$ are consistent estimators of $\{\lambda_i,\phi_i\}_{i=1}^r$.
+\begin{theorem}
+	Suppose $\E\Vert X_1 \Vert^4 < \infty$, $\lambda_1>...>\lambda_r>0$, and $\langle \phi_i,\hat{\phi_i}\rangle\geq 0$ for all $i$. Then, for all $i=1,...,r$,
+	$$\limsup_{N\to \infty} N \E\Vert \hat{\phi}_i - \phi_i\Vert^2 < \infty \ \text{ and } \ \limsup_{N\to \infty} N \E\vert \hat{\lambda}_i - \lambda_i\vert^2 < \infty.$$
+\end{theorem}
+Consequently, given a new observation $\tilde{X}$ one can estimate the component scores $\langle \tilde{X}, \phi_i\rangle \sim \xi_i$ with $\langle \tilde{X}, \hat{\phi}_i\rangle$ and get 
+$$\sup_{i=1...r}\E\left( \langle \tilde{X}, \hat{\phi}_i\rangle - \langle \tilde{X}, \phi_i\rangle\right)^2 = \sup_{i=1...r}\E\langle \tilde{X}, \hat{\phi}_i-\phi_i\rangle^2 \leq \sup_{i=1...r}\E\Vert \tilde{X}\Vert^2 \Vert \hat{\phi}_i-\phi_i\Vert^2 \stackrel{N\to \infty}{\longrightarrow} 0.$$
 
+\section{Discrete observations and smoothing}
+In practice, curves are never observed on their full domain, they are observed on a finite discrete subset $\{t_1,...,t_k\}$. Moreover, each observation can be subject to measurement errors. Therefore, in practice the observations are of the form:
+$$X_{ij}=X_i(t_j) + \epsilon_{ij}, \ i=1,...,N,\ j=1,...,K,$$
+where the $\epsilon_{ij}$ are i.i.d, of mean 0 and variance $\sigma^2$ and independent of the $X_i$'s.\\
+To be able to work with functional data, the full curves $X_i$ need to be approximated. This can be done by smoothing either the observations themselves or the covariance kernel.\\
+To smooth the observations, a popular approaches is the penalized smoothing method. One first needs to choose a function space $\mathbb{W}$ in which we want our approximations to live, and a penalty function $P:\mathbb{W}\to \R_+$ that penalizes unwanted behaviors. Then, we approximate $X_i$ with 
+$$\tilde{X}_i = \arg\min_{f \in \mathbb{W}}\left[ \sum_{j=1}^{K}(X_i(t_j)-f(t_j))^2 + \lambda P(f) \right],$$ 
+where $\lambda >0$ is a tuning parameter. A popular choice for $\mathbb{W}$ and $P$ are 
+$$\mathbb{W}=C^2[0,1] \ \text{ and } \ P(f) = \int_{0}^{1}\left\vert \frac{d^2 f}{dt^2}(t)\right\vert^2 dt.$$
+With this choice, we ask for our approximation to be twice differentiable and not to be too rough. Moreover, one can show that an explicit solution can be found in terms of cubic splines. For more details, see \cite[Chapter 5]{fdaram}. Using the smooth estimates $\tilde{X}_1,...,\tilde{X}_N$, the mean and covariance kernel can be estimated, as explained in the previous section.\\
+When the observation grid $\{t_1,...,t_K\}$ is sparse, the penalized smoothing approach will typically yield biased estimates. In that case, a popular approach is the PACE method described in \cite{pace}. In this method, one starts by estimating the covariance kernel. This is done by smoothing the covariance matrix of the observations $X_{ij}$, $i=1,...,N$, $j=1,...,K$, where the diagonal is removed to take care of the noise $\epsilon_{ij}$. Then, eigenpairs of the covariance operator are estimated by $\{\hat{\lambda_k},\hat{\phi_k}\}$, the eigenpairs of the estimated smoothed covariance kernel. Finally, the components scores $\xi_{ik} = \langle X_i, \phi_k\rangle$ are estimated using the explicit formulat for the conditional expectation in the Gaussian case:
+$$\hat{\xi}_{ik} = \widehat{\E}[\xi_{ik}\mid X_i(t_1),...,X_i(t_K)].$$
+The full curves $X_i$ are then estimated using the FPCA method:
+$$X_i= \hat{\mu} + \sum_{k=1}^{r} \hat{\xi}_{ik} \hat{\phi}_{k}.$$
+This method is shown to have better asymptotic properties when the observations are sparse.
+\begin{ex}
+	We illustrate the methods above with the growth data set of \cite{growth}, shown in Figure \ref{fig:growth}. We focus only on boys, for which there are 39 samples observed at 95 regularly sampled ages. We start by smoothing the observations using cubic splines. We then compute the derivatives of these smooth estimates. These derivatives are shown in the top left of Figure \ref{fig:exfpca}. We then compute the principal components using the eigenpairs of the estimated covariance kernel. The first three principal components explain 85\% of the total variance. In the top right and bottom of Figure \ref{fig:exfpca}, we show the mean derivative in blue, along with the curves
+	$$\hat{\mu} \pm 2\sqrt{\lambda_i}\phi_i, \ i=1,2,3$$
+	in red. We see that the first principal component explains two main modes of variation, one between 8 and 13, and the other between 16 and 18. Individuals having a high positive score in this component typically experience their puberty earlier and have a big spike in their growth around 12 years old. On the other hand, individuals having a high negative score in this component will experience puberty later, around 15 years old. The second component deals mainly with the variation close to birth. The third component is more difficult to interpret and is similar to the first component.
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{.4\textwidth}
+			\centering
+			\includegraphics[width=.8\linewidth]{Code/images/14/boys}
+			\caption{Derivatives with mean in blue.}
+		\end{subfigure}%
+		\begin{subfigure}{.4\textwidth}
+			\centering
+			\includegraphics[width=.8\linewidth]{Code/images/14/pca1}
+			\caption{\centering First component.}
+		\end{subfigure}
+		
+		
+		\medskip
+		
+		
+		\begin{subfigure}{.4\textwidth}
+			\centering
+			\includegraphics[width=.8\linewidth]{Code/images/14/pca2}
+			\caption{\centering Second component.}
+		\end{subfigure}%
+			\begin{subfigure}{.4\textwidth}
+				\centering
+				\includegraphics[width=.8\linewidth]{Code/images/14/pca3}
+				\caption{\centering Third component.}
+			\end{subfigure}
+		\caption{Example of FPCA on the growth data set.}
+		\label{fig:exfpca}
+	\end{figure}
+	This example shows how FPCA can be used to analyze the variation of a population of curves.\\
+	We note that our analysis is rather shallow since it does not take care of the time-registration problem. A thorough analysis of this dataset is performed in \cite[Chapter 6]{apfda}
+\end{ex}
 \chapter{Censored functional data}\label{chap:frags}
 \section{Functional fragments framework}\label{introfrag}
 \textit{Censored functional data} or \textit{functional fragments} are functional data that are not observed in the full domain on which they are defined. If the data live in $\Ll^2(\mathcal{I})$ for some interval $\mathcal{I} \subset \R$, an example of functional fragment is a function $f \in \Ll^2(\mathcal{J})$ for some interval $\mathcal{J}\subset \mathcal{I}$.

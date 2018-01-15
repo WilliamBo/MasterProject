@@ -1,30 +1,29 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction to Functional Data Analysis}{}% 1
 \BOOKMARK [1][-]{section.1.1}{What are functional data?}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{Stochastic processes on [0,1]}{chapter.1}% 3
-\BOOKMARK [2][-]{subsection.1.2.1}{Explain the structure of functional data, the spaces they live in, expectation, covariance, observable discretized versions. }{section.1.2}% 4
-\BOOKMARK [1][-]{section.1.3}{Statistical analysis of functional data}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.3.1}{Explain the basic principles of estimation of mean and covariance with convergence rates, etc.. Also mention smoothing methods. }{section.1.3}% 6
-\BOOKMARK [0][-]{chapter.2}{Censored functional data}{}% 7
-\BOOKMARK [1][-]{section.2.1}{Functional fragments framework}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.2}{Naive estimations}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.3}{Curve extension}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.4}{Covariance recovery}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.4.1}{Setup}{section.2.4}% 12
-\BOOKMARK [2][-]{subsection.2.4.2}{Identifiability and estimation}{section.2.4}% 13
-\BOOKMARK [2][-]{subsection.2.4.3}{Numerical implementation}{section.2.4}% 14
-\BOOKMARK [2][-]{subsection.2.4.4}{Example}{section.2.4}% 15
-\BOOKMARK [0][-]{chapter.3}{Gaussian measures in Hilbert space}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Gaussian measures in finite dimensions}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.2}{Gaussian measures in infinite dimensions}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.3}{The Feldman-Hajek theorem}{chapter.3}% 19
-\BOOKMARK [0][-]{chapter.4}{Classification of functional data}{}% 20
-\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.2}{Linear and quadratic discriminant analysis for functional data}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.2.1}{Finite dimensional case}{section.4.2}% 23
-\BOOKMARK [2][-]{subsection.4.2.2}{Infinite dimensional case: Equivalent Gaussian measures}{section.4.2}% 24
-\BOOKMARK [2][-]{subsection.4.2.3}{Infinite dimensional case: Singular Gaussian measures}{section.4.2}% 25
-\BOOKMARK [2][-]{subsection.4.2.4}{QDA for infinite dimensional data}{section.4.2}% 26
-\BOOKMARK [1][-]{section.4.3}{Classification of functional fragments}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.4}{A probabilistic approach to classification}{chapter.4}% 28
-\BOOKMARK [2][-]{subsection.4.4.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.4}% 29
-\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 30
+\BOOKMARK [1][-]{section.1.3}{Statistical analysis of functional data}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Discrete observations and smoothing}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Censored functional data}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Functional fragments framework}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{Naive estimations}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{Curve extension}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Covariance recovery}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.4.1}{Setup}{section.2.4}% 11
+\BOOKMARK [2][-]{subsection.2.4.2}{Identifiability and estimation}{section.2.4}% 12
+\BOOKMARK [2][-]{subsection.2.4.3}{Numerical implementation}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.4}{Example}{section.2.4}% 14
+\BOOKMARK [0][-]{chapter.3}{Gaussian measures in Hilbert space}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Gaussian measures in finite dimensions}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Gaussian measures in infinite dimensions}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{The Feldman-Hajek theorem}{chapter.3}% 18
+\BOOKMARK [0][-]{chapter.4}{Classification of functional data}{}% 19
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.2}{Linear and quadratic discriminant analysis for functional data}{chapter.4}% 21
+\BOOKMARK [2][-]{subsection.4.2.1}{Finite dimensional case}{section.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.2.2}{Infinite dimensional case: Equivalent Gaussian measures}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.3}{Infinite dimensional case: Singular Gaussian measures}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.4}{QDA for infinite dimensional data}{section.4.2}% 25
+\BOOKMARK [1][-]{section.4.3}{Classification of functional fragments}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.4}{A probabilistic approach to classification}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.4.1}{Explain the perfect classification phenomenon through the F-H theorem. If I manage to find something, also the classification of fragments.}{section.4.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Numerical experiments}{}% 29
